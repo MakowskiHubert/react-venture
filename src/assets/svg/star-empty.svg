@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-1{fill:url(#linear-gradient)}
+        </style>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#fff"/>
+            <stop offset="1" stop-color="#fff"/>
+        </linearGradient>
+    </defs>
+    <path id="star_empty" d="M29.348 14.642a2.3 2.3 0 0 0 .544-2.3 2.166 2.166 0 0 0-1.737-1.529l-7.264-1.1a.953.953 0 0 1-.715-.542L16.929 2.3a2.113 2.113 0 0 0-3.858 0L9.823 9.169a.954.954 0 0 1-.715.542l-7.264 1.1a2.166 2.166 0 0 0-1.738 1.53 2.3 2.3 0 0 0 .544 2.3l5.256 5.349a1.02 1.02 0 0 1 .274.878l-1.24 7.55a2.268 2.268 0 0 0 .469 1.821 2.112 2.112 0 0 0 2.652.546l6.5-3.565a.936.936 0 0 1 .884 0l6.5 3.565a2.058 2.058 0 0 0 1 .261 2.122 2.122 0 0 0 1.651-.808 2.267 2.267 0 0 0 .469-1.821l-1.24-7.55a1.019 1.019 0 0 1 .274-.878z" class="cls-1" data-name="star simple" transform="translate(.001 -1.047)"/>
+</svg>

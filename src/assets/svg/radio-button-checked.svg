@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="baseline-radio_button_checked-24px" width="48" height="48" viewBox="0 0 48 48">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-2{fill:none}
+        </style>
+    </defs>
+    <path id="Path_84" d="M22 12a10 10 0 1 0 10 10 10 10 0 0 0-10-10zm0-10a20 20 0 1 0 20 20A20.007 20.007 0 0 0 22 2zm0 36a16 16 0 1 1 16-16 16 16 0 0 1-16 16z" class="cls-1" data-name="Path 84" transform="translate(2 2)"/>
+    <path id="Path_85" d="M0 0h48v48H0z" class="cls-2" data-name="Path 85"/>
+</svg>

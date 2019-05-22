@@ -16,7 +16,7 @@ const Header = styled.header`
   color: white;
 `;
 
-const App = () => (
+export const App = () => (
 	<Container>
 		<Header>
 			<p>
@@ -25,5 +25,3 @@ const App = () => (
 		</Header>
 	</Container>
 );
-
-export default App;

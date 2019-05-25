@@ -31,7 +31,7 @@ const StyledStatement = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4.8vmin;
+  font-size: 4vmin;
   color: #2280ff;
   font-weight: bold;
 `;

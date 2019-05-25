@@ -39,12 +39,5 @@ export const theme = {
 		150: '11.72vmax',
 		200: '15.62vmax',
 		112: '8.75vmax', // bottom bar
-	},
-	test: [
-		'dawdawd',
-		'dawdawd',
-		'dawdawd',
-		'dawdawd',
-		'dawdawd',
-	]
+	}
 };

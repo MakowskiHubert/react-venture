@@ -11,13 +11,13 @@ const Wrapper = styled.button`
   margin: auto;
   font-weight: 500;
   font-size: 1.5rem;
-  filter: ${({ theme, disable }) => disable && theme.filters.grayscale };
+  filter: ${({ theme, disable }) => disable && theme.filters.grayscale};
   color: #fff;
   border: none;
-  margin-top: ${({ theme, mt }) => mt && theme.size[mt] };
-  margin-right: ${({ theme, mr }) => mr && theme.size[mr] };
-  margin-bottom: ${({ theme, mb }) => mb && theme.size[mb] };
-  margin-left: ${({ theme, ml }) => ml && theme.size[ml] };
+  margin-top: ${({ theme, mt }) => mt && theme.size[mt]};
+  margin-right: ${({ theme, mr }) => mr && theme.size[mr]};
+  margin-bottom: ${({ theme, mb }) => mb && theme.size[mb]};
+  margin-left: ${({ theme, ml }) => ml && theme.size[ml]};
 
   :focus,
   :active {
@@ -31,33 +31,33 @@ const Wrapper = styled.button`
   }
 
   img {
-    width: ${({ theme }) => theme.size[48] };
-    height: ${( { theme }) => theme.size[48] };
+    width: ${({ theme }) => theme.size[48]};
+    height: ${({ theme }) => theme.size[48]};
   }
   
   ${({ primary }) => primary && css`
  	 	width: 55.55vmin;
  	 	height: 7vmax;
- 	 	border-radius: ${( { theme }) => theme.size[50] };
- 	 	background-color: ${( { theme }) => theme.colors.secondary };
+ 	 	border-radius: ${({ theme }) => theme.size[50]};
+ 	 	background-color: ${({ theme }) => theme.colors.secondary};
  	 	font-size: 1.5rem;
  	 	border: none;
   `}
   
   ${({ link }) => link && css`
  		position: fixed;
-  	height: ${( { theme }) => theme.size[100] };
+  	height: ${({ theme }) => theme.size[100]};
   	width: 100vw;
   	left: 0;
   	bottom: 0;
-  	color: ${( { theme }) => theme.colors.primary_dark };
+  	color: ${({ theme }) => theme.colors.primary_dark};
   	font-weight: 600;
   	background-color: #fff;
 	
   	a {
-  	  height: ${( { theme }) => theme.size[100] };
-  	  line-height: ${( { theme }) => theme.size[100] };
-    	color: ${( { theme }) => theme.colors.primary_dark };
+  	  height: ${({ theme }) => theme.size[100]};
+  	  line-height: ${({ theme }) => theme.size[100]};
+    	color: ${({ theme }) => theme.colors.primary_dark};
   	  outline: none;
     	border: none;
     	text-decoration: none;
@@ -75,19 +75,19 @@ const Wrapper = styled.button`
 	${({ next }) => next && css`
 	  position: relative;
   	float: right;
-  	width: ${( { theme }) => theme.size[112] };
-  	height: ${( { theme }) => theme.size[112] };
-  	border-radius: ${( { theme }) => theme.size[112] };
-  	line-height: ${( { theme }) => theme.size[112] };
-  	background-color: ${( { theme }) => theme.colors.secondary };
+  	width: ${({ theme }) => theme.size[112]};
+  	height: ${({ theme }) => theme.size[112]};
+  	border-radius: ${({ theme }) => theme.size[112]};
+  	line-height: ${({ theme }) => theme.size[112]};
+  	background-color: ${({ theme }) => theme.colors.secondary};
   	text-align: center;
-  	margin-right: ${( { theme }) => theme.size[5] };
+  	margin-right: ${({ theme }) => theme.size[5]};
   	border: none;
 	`}
 	
 	${({ login }) => login && css`
-		box-shadow: 0 0 1.5rem 0 ${( { theme }) => theme.colors.primary_dark };
-  	background-color: ${( { theme }) => theme.colors.primary_dark };
+		box-shadow: 0 0 1.5rem 0 ${({ theme }) => theme.colors.primary_dark};
+  	background-color: ${({ theme }) => theme.colors.primary_dark};
 	`}
 `;
 

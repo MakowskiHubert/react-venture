@@ -21,7 +21,7 @@ export const theme = {
 		huerotate: 'hue-rotate(180deg)',
 		opacity: 'opacity(50%)'
 	},
-	/* for width and height pattern: 100 * px / vmax */
+	/* for width and height pattern: px * 100 / vmax  5*100/1280 */
 	size: {
 		5: '0.39vmax',
 		10: '0.78vmax',

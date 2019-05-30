@@ -1,5 +1,8 @@
 export const routes = {
 	WELCOME: '/',
+	WELCOME_EXPLORE: '/welcome-explore',
+	WELCOME_COLLECT: '/welcome-collect',
+	WELCOME_JOIN: '/welcome-join',
 	HOME: '/home',
 	SIGN_UP: '/sign-up',
 	SIGN_UP_SUCCESS: '/sign-up-success',

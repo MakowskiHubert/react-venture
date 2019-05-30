@@ -7,7 +7,8 @@ export const theme = {
 		gray: '#3C3C3C',
 		light_gray: '#A9A9A9',
 		light_gray_1: '#888888',
-		light_gray_2: '#CCCCCC',
+		light_gray_2: '#919191',
+		light_gray_3: '#CCCCCC',
 		error: '#FF0000'
 	},
 	filters: {

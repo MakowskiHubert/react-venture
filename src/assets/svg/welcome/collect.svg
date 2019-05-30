@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="656" height="445.901" viewBox="0 0 656 445.901">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2,.cls-9{fill:#007fff}.cls-2{opacity:.18}.cls-3{fill:#535461}.cls-4{opacity:.1}.cls-5{opacity:.17}.cls-6{opacity:.05}.cls-7{fill:#e0e0e0}.cls-8{clip-path:url(#clip-path)}.cls-10{clip-path:url(#clip-path-2)}.cls-11{fill:#8dc6ff}.cls-12{opacity:.07}.cls-13{clip-path:url(#clip-path-3)}.cls-14{clip-path:url(#clip-path-4)}.cls-15{fill:#5e82a6}.cls-16{clip-path:url(#clip-path-5)}.cls-17{clip-path:url(#clip-path-6)}.cls-18{clip-path:url(#clip-path-7)}.cls-19{clip-path:url(#clip-path-8)}.cls-20{clip-path:url(#clip-path-9)}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h114.582v123.032H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-2">
+            <path d="M0 0h135.64v145.643H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-3">
+            <path d="M0 0h120.036v128.888H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-4">
+            <path d="M0 0h144.118v154.746H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-5">
+            <path d="M0 0h105.594v112.548H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-6">
+            <path d="M0 0h74.307v79.787H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-7">
+            <path d="M0 0h52.547v56.422H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-8">
+            <path d="M0 0h43.491v46.698H0z" class="cls-1"/>
+        </clipPath>
+        <clipPath id="clip-path-9">
+            <path d="M0 0h23.339v25.06H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Group_54" data-name="Group 54" transform="translate(-32 -472)">
+        <rect id="Rectangle_422" width="656" height="400" class="cls-2" data-name="Rectangle 422" rx="42" transform="translate(32 472)"/>
+        <g id="Group_44" data-name="Group 44" transform="translate(140.268 464.455)">
+            <path id="Path_231" d="M511.119 340.053L368.88 305.54v270.079l142.239-37.509z" class="cls-3" data-name="Path 231" transform="translate(-149.811 -122.173)"/>
+            <path id="Path_232" d="M511.119 340.053L368.88 305.54v270.079l142.239-37.509z" class="cls-4" data-name="Path 232" transform="translate(-149.811 -122.173)"/>
+            <path id="Path_233" d="M128.83 340.053l142.233-34.513v270.079L128.83 538.856z" class="cls-3" data-name="Path 233" transform="translate(-51.994 -122.173)"/>
+            <path id="Path_234" d="M128.83 338.053l142.233-34.513v271.273L128.83 538.05z" class="cls-5" data-name="Path 234" transform="translate(-51.994 -121.367)"/>
+            <path id="Path_235" d="M366.88 265.19l74.912-62.71 142.239 36.763-74.912 60.457z" class="cls-3" data-name="Path 235" transform="translate(-148.996 -80.63)"/>
+            <path id="Path_236" d="M7.66 241.989l72.98 58.52L222.873 266l-72.233-61.52z" class="cls-3" data-name="Path 236" transform="translate(-2.619 -81.436)"/>
+            <path id="Path_237" d="M5.66 239.989L80.418 299.7l142.233-34.51-74.011-62.71z" class="cls-6" data-name="Path 237" transform="translate(-1.804 -80.63)"/>
+            <rect id="Rectangle_407" width="53.925" height="1.755" class="cls-7" data-name="Rectangle 407" rx=".8" transform="translate(137.006 257.735)"/>
+            <path id="Rectangle_413" d="M0 0h60.982v2.614H0z" class="cls-7" data-name="Rectangle 413" transform="translate(206.691 256.744)"/>
+            <g id="pin" class="cls-8" transform="translate(185.904 97.05)">
+                <path id="pin-2" d="M36.723 2a34.009 34.009 0 0 0-8.655 66.821l8.655 8.726 8.655-8.726A34.009 34.009 0 0 0 36.723 2z" class="cls-9" data-name="pin" transform="translate(20.568 21.743)"/>
+            </g>
+            <path id="Rectangle_416" d="M0 0h19.245v2.614H0z" class="cls-9" data-name="Rectangle 416" transform="translate(228.099 267.416)"/>
+            <g id="pin-3" class="cls-10" data-name="pin" transform="translate(138.39 168.721)">
+                <path id="pin-4" d="M42.92 2a40.259 40.259 0 0 0-10.246 79.1L42.92 91.43 53.166 81.1A40.26 40.26 0 0 0 42.92 2z" class="cls-11" data-name="pin" transform="translate(24.9 26.106)"/>
+            </g>
+            <path id="Path_240" d="M128.83 363.36v198.8l142.233 36.763 1.92-197.305z" class="cls-3" data-name="Path 240" transform="translate(-51.994 -145.48)"/>
+            <path id="Path_241" d="M511.119 561.417l-142.239 37.51V401.621l142.239-38.261z" class="cls-3" data-name="Path 241" transform="translate(-149.811 -145.48)"/>
+            <path id="Path_242" d="M511.119 561.417l-142.239 37.51V401.621l142.239-38.261z" class="cls-12" data-name="Path 242" transform="translate(-149.811 -145.48)"/>
+            <path id="Path_243" d="M513.42 573.928v65.265l56.6-15.752V558.17z" class="cls-12" data-name="Path 243" transform="translate(-208.709 -224.008)"/>
+            <path id="Path_248" d="M125.69 468.29l79.681 20.253 64.045-52.515v-32.257L127.177 367.76z" class="cls-4" data-name="Path 248" transform="translate(-50.715 -147.254)"/>
+            <g id="pin-5" class="cls-13" data-name="pin" transform="translate(65.84 139.836)">
+                <path id="pin-6" d="M38.328 2a35.628 35.628 0 0 0-9.068 70l9.067 9.141L47.4 72a35.628 35.628 0 0 0-9.072-70z" class="cls-9" data-name="pin" transform="translate(21.69 22.873)"/>
+            </g>
+            <path id="Path_249" d="M511.986 468.29L432.3 488.543l-64.04-52.516v-32.256L510.5 367.76z" class="cls-4" data-name="Path 249" transform="translate(-149.559 -147.254)"/>
+            <path id="Path_250" d="M78.64 363.36L5.66 424.124l142.233 36.011 72.98-58.514z" class="cls-3" data-name="Path 250" transform="translate(-1.804 -145.48)"/>
+            <g id="pin-7" class="cls-14" data-name="pin" transform="translate(232.691 143.174)">
+                <path id="pin-8" d="M45.415 2a42.776 42.776 0 0 0-10.886 84.045L45.415 97.02 56.3 86.045A42.776 42.776 0 0 0 45.415 2z" class="cls-15" data-name="pin" transform="translate(26.644 27.863)"/>
+            </g>
+            <path id="Path_251" d="M511.119 363.36l73.726 60.764-141.492 36.011-74.473-58.514z" class="cls-3" data-name="Path 251" transform="translate(-149.811 -145.48)"/>
+            <path id="Path_252" d="M511.119 363.36l73.726 60.764-141.492 36.011-74.473-58.514z" class="cls-12" data-name="Path 252" transform="translate(-149.811 -145.48)"/>
+            <g id="pin-9" class="cls-16" data-name="pin" transform="rotate(-22 295.184 -164.743)">
+                <path id="pin-10" d="M34.077 2A31.085 31.085 0 0 0 26.1 63.127l7.977 7.982 7.977-7.982A31.085 31.085 0 0 0 34.077 2z" class="cls-11" data-name="pin" transform="translate(18.72 19.72)"/>
+            </g>
+            <g id="pin-11" class="cls-17" data-name="pin" transform="translate(184.553 55.05)">
+                <path id="pin-12" d="M21.836 0A21.835 21.835 0 0 0 0 21.976a22.121 22.121 0 0 0 16.32 21.307l5.631 5.667 5.6-5.64a21.86 21.86 0 0 0 16.22-21.23A22.086 22.086 0 0 0 21.836 0z" class="cls-15" data-name="pin" transform="rotate(20 -14.197 75.455)"/>
+            </g>
+            <g id="pin-13" class="cls-18" data-name="pin" transform="translate(151.63 43.01)">
+                <path id="pin-14" d="M15.445 0A15.408 15.408 0 0 0 0 15.51a15.667 15.667 0 0 0 11.567 15.061l3.99 4.007 3.965-3.978a15.414 15.414 0 0 0 11.469-14.989A15.652 15.652 0 0 0 15.445 0z" class="cls-9" data-name="pin" transform="rotate(31 1.195 42.172)"/>
+            </g>
+            <g id="pin-15" class="cls-19" data-name="pin" transform="translate(246.487 71.555)">
+                <path id="pin-16" d="M12.819 0A12.91 12.91 0 0 0 9.5 25.361l3.282 3.307 3.29-3.315A12.9 12.9 0 0 0 12.819 0z" class="cls-9" data-name="pin" transform="rotate(-10.02 68.661 -32.2)"/>
+            </g>
+            <g id="pin-17" class="cls-20" data-name="pin" transform="translate(228.002 39)">
+                <path id="pin-18" d="M6.9 0A6.948 6.948 0 0 0 0 6.934a6.851 6.851 0 0 0 5.094 6.66l1.76 1.769 1.771-1.78a6.956 6.956 0 0 0 5.135-6.691A6.847 6.847 0 0 0 6.9 0z" class="cls-11" data-name="pin" transform="rotate(-28 19.016 .499)"/>
+            </g>
+        </g>
+    </g>
+</svg>

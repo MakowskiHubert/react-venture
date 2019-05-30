@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Ink from 'react-ink';
 import styled, { css } from 'styled-components';
+import { Link } from 'components/Link';
 
 const Wrapper = styled.button`
   position: relative;
@@ -10,19 +11,22 @@ const Wrapper = styled.button`
   justify-content: center;
   margin: auto;
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  background-color: #fff;
+  border: solid 5px ${({ theme }) => theme.colors.gray};
+  border-radius: ${({ theme }) => theme.size[10]};
   filter: ${({ theme, disable }) => disable && theme.filters.grayscale};
-  color: #fff;
-  border: none;
+  color: ${({ theme }) => theme.colors.gray};
   margin-top: ${({ theme, mt }) => mt && theme.size[mt]};
   margin-right: ${({ theme, mr }) => mr && theme.size[mr]};
   margin-bottom: ${({ theme, mb }) => mb && theme.size[mb]};
   margin-left: ${({ theme, ml }) => ml && theme.size[ml]};
-
+	width: 44.15vmin;
+	height: 7vmax;
+	
   :focus,
   :active {
     outline: none;
-    border: none;
     text-decoration: none;
   }
 
@@ -38,8 +42,9 @@ const Wrapper = styled.button`
   ${({ primary }) => primary && css`
  	 	width: 55.55vmin;
  	 	height: 7vmax;
- 	 	border-radius: ${({ theme }) => theme.size[50]};
- 	 	background-color: ${({ theme }) => theme.colors.secondary};
+ 	 	border-radius: ${({ theme }) => theme.size[10]};
+ 	 	background-color: ${({ theme }) => theme.colors.primary_dark};
+ 	 	color: #fff;
  	 	font-size: 1.5rem;
  	 	border: none;
   `}
@@ -89,13 +94,29 @@ const Wrapper = styled.button`
 		box-shadow: 0 0 1.5rem 0 ${({ theme }) => theme.colors.primary_dark};
   	background-color: ${({ theme }) => theme.colors.primary_dark};
 	`}
+	
+	${({ width }) => width && css`
+		width: ${width}
+	`}
+	
+	${({ height }) => height && css`
+		height: ${height}
+	`}
 `;
-
 export const Button = (props) => (
-	<Wrapper {...props}>
-		{!props.disable && (<Ink />)}
-		{props.children}
-	</Wrapper>
+	props.to ? (
+		<Link to={props.to}>
+			<Wrapper {...props}>
+				{!props.disable && (<Ink duration={200} />)}
+				{props.children}
+			</Wrapper>
+		</Link>
+	) : (
+		<Wrapper {...props}>
+			{!props.disable && (<Ink duration={200} />)}
+			{props.children}
+		</Wrapper>
+	)
 );
 
 Button.propTypes = {

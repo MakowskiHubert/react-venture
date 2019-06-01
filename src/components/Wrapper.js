@@ -6,6 +6,7 @@ const StyledWrapper = styled.div`
   display: ${({ display }) => display};
   align-items: ${({ alignItems }) => alignItems};
   justify-content: ${({ justifyContent }) => justifyContent};
+  flex-direction: ${({ flexDirection }) => flexDirection};
   background-color: ${({ color }) => color};
   margin:
     ${({ mt }) => mt && `${mt}vmax`}
@@ -19,11 +20,12 @@ const StyledWrapper = styled.div`
     ${({ pl }) => pl && `${pl}vmax`}
 `;
 
-export const Wrapper = ({ display, alignItems, justifyContent, mt, mr, mb, ml, pt, pr, pb, pl, color, children }) => (
+export const Wrapper = ({ display, alignItems, justifyContent, flexDirection, mt, mr, mb, ml, pt, pr, pb, pl, color, children }) => (
 	<StyledWrapper
 		display={display}
 		alignItems={alignItems}
 		justifyContent={justifyContent}
+		flexDirection={flexDirection}
 		mt={mt} mr={mr} mb={mb} ml={ml}
 		pt={pt} pr={pr} pb={pb} pl={pl}
 		color={color}
@@ -54,6 +56,7 @@ Wrapper.defaultProps = {
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'center',
+	flexDirection: 'column',
 	mt: 0,
 	mr: 0,
 	mb: 0,

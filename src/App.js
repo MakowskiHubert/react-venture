@@ -8,6 +8,8 @@ import JoinPage from 'components/Pages/Welcome/JoinPage';
 import { MapPage } from 'components/Pages/MapPage';
 import { routes } from 'constants/routes';
 import PrevPathUpdater from 'utils/PrevPathUpdater';
+import { ProfilePage } from 'components/Pages/Welcome/ProfilePage';
+import { ListPage } from 'components/Pages/Welcome/ListPage';
 
 export const App = () => (
 	<Router>
@@ -31,5 +33,7 @@ export const App = () => (
 			}}
 		/>
 		<Route path={routes.MAP} component={MapPage}/>
+		<Route path={routes.WELCOME_PROFILE} component={ProfilePage}/>
+		<Route path={routes.WELCOME_LIST} component={ListPage}/>
 	</Router>
 );

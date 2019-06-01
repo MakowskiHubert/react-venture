@@ -5,6 +5,7 @@ import { Link } from 'components/Link';
 import { Button } from 'components/Button';
 import { routes } from 'constants/routes';
 import explore from 'assets/svg/welcome/explore.svg';
+import { slideInLeft, slideInRight, slideOutLeft, slideOutRight } from 'utils/animations';
 
 
 export const Wrapper = styled.div`
@@ -12,6 +13,19 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: ${({ bc }) => bc};
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  &.page-enter {
+    animation: ${({ slideRight }) => slideRight ? slideInRight : slideInLeft } 0.2s forwards;
+  }
+  &.page-exit {
+    animation: ${({ slideRight }) => slideRight ? slideOutRight : slideOutLeft } 0.2s forwards;
+  }
 `;
 
 export const Title = styled.p`
@@ -34,7 +48,7 @@ const Submit = styled.div`
   margin-bottom: ${({ theme }) => theme.size[20]};
 `;
 
-export const ExplorePage = () => (
+const ExplorePage = () => (
 	<Wrapper>
 		<Title>Eksploruj</Title>
 		<SubTitle>
@@ -45,6 +59,8 @@ export const ExplorePage = () => (
 		<Submit>
 			<Button to={routes.WELCOME_COLLECT} primary>Dalej</Button>
 		</Submit>
-		<Link to={routes.MAP}>pomiń</Link>
+		<Link to={routes.WELCOME_JOIN}>pomiń</Link>
 	</Wrapper>
 );
+
+export default ExplorePage;

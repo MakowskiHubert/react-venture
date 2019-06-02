@@ -9,10 +9,10 @@ const Wrapper = styled.div`
   align-items: center;
   font-family: cursive;
 	padding:
-		${({ pt }) => pt && `${pt}vmax`}
-		${({ pr }) => pr && `${pr}vmax`}
-		${({ pb }) => pb && `${pb}vmax`}
-		${({ pl }) => pl && `${pl}vmax`}
+		${({ pt }) => pt && `${pt}px`}
+		${({ pr }) => pr && `${pr}px`}
+		${({ pb }) => pb && `${pb}px`}
+		${({ pl }) => pl && `${pl}px`}
 
   img {
     width: ${({ theme }) => theme.size[48]};
@@ -32,34 +32,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const Circle = styled.div`
-	width: 10.94vmax;
-	height: 10.94vmax;
-	background-color: ${({ theme }) => theme.colors.primary_dark};
-	position: absolute;
-	z-index: -1;
-	border: ${({ theme }) => theme.size[10]} solid #fff;
-	border-radius: 10.94vmax;
-	
-	:before {
-		background: none;
-		border: 2px solid #eee;
-		content: "";
-		display: block;
-		position: absolute;
-		top: -10px;
-		left: -10px;
-		right: -10px;
-		bottom: -10px;
-		pointer-events: none;
-		border-radius: 10.94vmax;
-	}
-`;
-
-export const Icon = ({onClick, src, alt, text, pt, pr, pb, pl, color, active}) =>
-	<Wrapper onClick={onClick} pt={pt} pr={pr} pb={pb} pl={pl} color={color} active={active}>
+export const Icon = ({onClick, src, alt, text, pt, pr, pb, pl, color}) =>
+	<Wrapper onClick={onClick} pt={pt} pr={pr} pb={pb} pl={pl} color={color}>
 		<img src={src} alt={alt}/><p>{text}</p>
-		{ active && <Circle /> }
 	</Wrapper>;
 
 Icon.propTypes = {

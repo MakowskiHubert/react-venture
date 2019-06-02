@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bootstrap-styled/v4": "^3.0.15",
+    "bootstrap-styled": "^2.4.13",
     "firebase": "^6.0.2",
     "google-maps-react": "^2.0.2",
     "history": "^4.9.0",

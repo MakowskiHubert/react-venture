@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Input as InputBootstrap } from '@bootstrap-styled/v4';
+
 import MapContainer from 'components/Map/Map';
 import { Toolbar } from 'components/Toolbar';
 import { Icon } from 'components/Icon';
@@ -6,29 +8,65 @@ import hot from 'assets/svg/hot.svg';
 import map from 'assets/svg/map.svg';
 import list from 'assets/svg/list.svg';
 import profile from 'assets/svg/profile.svg';
+import search from 'assets/svg/search.svg';
+import microphone from 'assets/svg/microphone.svg';
+import filters from 'assets/svg/filters.svg';
+import { Wrapper } from 'components/Wrapper';
+import styled from 'styled-components';
 
-export class MapPage extends Component {
-  state = {
-  	active: 1
-  }
+const Search = styled.div`
+	display: flex;
+	
+	> img {
+		margin-left: ${({ theme }) => theme.size[20]};
+	}
+`;
 
-  setActive = icon => {
-  	this.setState({ active: icon });
-  }
+const Input = styled(InputBootstrap)`
+	font-size: 1.5rem;
+	border: none;
+	box-shadow: none;
+	
+	:focus {
+		outline: none;
+		box-shadow: none;
+	}
+	
+	::placeholder {
+		font-size: 1.5rem;
+		color: ${({ theme }) => theme.colors.light_gray_2};
+	}
+`;
 
-  render() {
-  	const { active } = this.state;
+const Menu = styled.div`
+	> div:last-child {
+		margin-right: ${({ theme }) => theme.size[20]};
+		border-left: 2px solid #ddd;
+	}
+`;
 
-  	return (
-  		<div>
-  			<MapContainer />
-  			<Toolbar bottom>
-  				<Icon active={active === 0} onClick={() => this.setActive(0)} src={hot} alt='hot' text={'hot'} />
-  				<Icon active={active === 1} onClick={() => this.setActive(1)} src={map} alt='map' text={'mapa'} />
-  				<Icon active={active === 2} onClick={() => this.setActive(2)} src={list} alt='list' text={'listy'} />
-  				<Icon active={active === 3} onClick={() => this.setActive(3)} src={profile} alt='profile' text={'profil'} />
-  			</Toolbar>
-  		</div>
-  	);
-  }
-}
+export const MapPage = () => (
+	<div>
+		<Wrapper alignItems='normal' flexDirection='row'>
+			<Toolbar top position='absolute'>
+				<Search>
+					<img src={search} alt='search icon' />
+					<Input type="search" name="search" id="exampleSearch" placeholder="Czego szukasz?" />
+				</Search>
+				<Menu>
+					<Icon pr={20} src={microphone} alt='microphone icon' />
+					<Icon pl={20} src={filters} alt='filter icon' />
+				</Menu>
+			</Toolbar>
+		</Wrapper>
+
+		<MapContainer />
+
+		<Toolbar bottom>
+			<Icon src={hot} alt='hot places icon' text={'hot'} />
+			<Icon src={map} alt='map icon' text={'mapa'} />
+			<Icon src={list} alt='list of places icon' text={'listy'} />
+			<Icon src={profile} alt='profile icon' text={'profil'} />
+		</Toolbar>
+	</div>
+);

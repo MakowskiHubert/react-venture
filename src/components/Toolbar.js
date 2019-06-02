@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const Wrapper = styled.div`
+	position: ${({ position }) => position && position};
+	
   ${({ top }) => top && css`
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: ${({ alignItems }) => alignItems ? alignItems : 'center'};
+    justify-content: ${({ justifyContent }) => justifyContent ? justifyContent : 'space-between'};
     background-color: #fff;
     z-index: 500;
     width: 91.25%;
@@ -31,7 +33,8 @@ const Wrapper = styled.div`
   `};
 `;
 
-export const Toolbar = ({ children, top, bottom }) => <Wrapper top={top} bottom={bottom}>{children}</Wrapper>;
+export const Toolbar = ({ children, top, bottom, position, alignItems, justifyContent }) =>
+	<Wrapper top={top} bottom={bottom} position={position} alignItems={alignItems} justifyContent={justifyContent}>{children}</Wrapper>;
 
 Toolbar.propTypes = {
 	children: PropTypes.oneOfType([

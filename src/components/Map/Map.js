@@ -20,13 +20,14 @@ export class MapContainer extends Component {
 					lat: -1.2884,
 					lng: 36.8233
 				}}
-				panControl={true}
-				zoomControl={true}
-				mapTypeControl={true}
-				scaleControl={true}
-				streetViewControl={false}
-				overviewMapControl={true}
-				rotateControl={true}
+				disableDefaultUI={true}
+				// panControl={true}
+				// zoomControl={true}
+				// mapTypeControl={true}
+				// scaleControl={true}
+				// streetViewControl={false}
+				// overviewMapControl={true}
+				// rotateControl={true}
 			/>
 		);
 	}

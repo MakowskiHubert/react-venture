@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="baseline-search-24px" width="48" height="48" viewBox="0 0 48 48">
+    <defs>
+        <style>
+            .cls-1{fill:#919191}.cls-2{fill:none}
+        </style>
+    </defs>
+    <path id="Path_209" d="M28 25h-1.58l-.56-.54a13.02 13.02 0 1 0-1.4 1.4l.54.56V28l10 9.98L37.98 35zm-12 0a9 9 0 1 1 9-9 8.988 8.988 0 0 1-9 9z" class="cls-1" data-name="Path 209" transform="translate(3 3)"/>
+    <path id="Path_210" d="M0 0h48v48H0z" class="cls-2" data-name="Path 210"/>
+</svg>

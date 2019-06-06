@@ -28,8 +28,8 @@ export const Link = (props) => (
 
 Link.propTypes = {
 	children: PropTypes.oneOfType([
-		PropTypes.element,
-		PropTypes.string
+		PropTypes.string,
+		PropTypes.node
 	])
 };
 

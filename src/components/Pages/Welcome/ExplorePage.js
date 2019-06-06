@@ -43,8 +43,13 @@ export const SubTitle = styled.div`
   margin-bottom: ${({ theme }) => theme.size[80]};
 `;
 
+export const Image = styled.img`
+	width: 91vmin;
+	height: 62vmin;
+`;
+
 const Submit = styled.div`
-  margin-top: 16.9vmax;
+  margin-top: 10vmax;
   margin-bottom: ${({ theme }) => theme.size[20]};
 `;
 
@@ -55,7 +60,7 @@ const ExplorePage = () => (
 			<p>Zobacz najpiękniejsze miejsca</p>
 			<p>w okolicy i na świecie.</p>
 		</SubTitle>
-		<img src={explore} alt='graphic illustrating the places'/>
+		<Image src={explore} alt='graphic illustrating the places'/>
 		<Submit>
 			<Button to={routes.WELCOME_COLLECT} primary>Dalej</Button>
 		</Submit>

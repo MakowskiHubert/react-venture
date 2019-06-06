@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import { Wrapper, Title, SubTitle } from './ExplorePage';
+import { Wrapper, Title, SubTitle, Image } from './ExplorePage';
 import { Button } from 'components/Button';
 import { Link } from 'components/Link';
 import join from 'assets/svg/welcome/join.svg';
@@ -44,7 +44,7 @@ class JoinPage extends Component {
 					<p>Zyskaj nowy wymiar eksploracji.</p>
 					<p>To zajmie tylko chwileczkę :)</p>
 				</SubTitle>
-				<img src={join} alt='graphic illustrating the social'/>
+				<Image src={join} alt='graphic illustrating the social'/>
 				<Submit>
 					<Button onClick={this.handleNext} to={routes.MAP}>Nie dołączaj</Button>
 					<Button onClick={this.handleNext} to={routes.SIGN_UP} primary width='44.15vmin'>Dołącz</Button>

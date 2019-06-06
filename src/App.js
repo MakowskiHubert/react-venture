@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import CollectPage from 'components/Pages/Welcome/CollectPage';
@@ -22,6 +22,7 @@ export class App extends Component {
 	render() {
 		return (
 			<Router>
+				<Route exact path={routes.WELCOME} component={() => <Redirect from={routes.WELCOME} to={routes.WELCOME_EXPLORE} />}/>
 				<Route
 					render={({ location }) => {
 						return (
@@ -32,18 +33,19 @@ export class App extends Component {
 									key={location.key}
 								>
 									<Switch location={location}>
-										<Route exact path={routes.WELCOME_EXPLORE} component={ExplorePage}/>
-										<Route exact path={routes.WELCOME_COLLECT} component={CollectPage}/>
-										<Route exact path={routes.WELCOME_JOIN} component={JoinPage}/>
+										<Route path={routes.WELCOME_EXPLORE} component={ExplorePage}/>
+										<Route path={routes.WELCOME_COLLECT} component={CollectPage}/>
+										<Route path={routes.WELCOME_JOIN} component={JoinPage}/>
 									</Switch>
 								</CSSTransition>
 							</TransitionGroup>
 						);
 					}}
 				/>
-				<Route exact path={routes.WELCOME} component={MapPage}/>
-				<Route exact path={routes.WELCOME_PROFILE} component={ProfilePage}/>
-				<Route exact path={routes.WELCOME_LIST} component={ListPage}/>
+				<Route path={routes.MAP} component={MapPage}/>
+				<Route path={routes.WELCOME_PROFILE} component={ProfilePage}/>
+				<Route path={routes.WELCOME_LIST} component={ListPage}/>
+				<Route component={null} />
 			</Router>
 		);
 	}

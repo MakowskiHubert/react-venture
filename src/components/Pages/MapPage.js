@@ -1,5 +1,4 @@
-import React from 'react';
-import { Input as InputBootstrap } from '@bootstrap-styled/v4';
+import React, { Component } from 'react';
 
 import MapContainer from 'components/Map/Map';
 import { Toolbar } from 'components/Toolbar';
@@ -13,16 +12,36 @@ import microphone from 'assets/svg/microphone.svg';
 import filters from 'assets/svg/filters.svg';
 import { Wrapper } from 'components/Wrapper';
 import styled from 'styled-components';
+import { routes } from 'constants/routes';
 
 const Search = styled.div`
 	display: flex;
+	width: 70%;
 	
-	> img {
-		margin-left: ${({ theme }) => theme.size[20]};
+	:hover {
+		> img {
+			transition: 0.5s;
+			opacity: 0;
+			transform: scale(0.1);
+			visibility: hidden; 
+			margin-left: ${({ theme }) => `-${theme.size[30]}`};
+		}
 	}
 `;
 
-const Input = styled(InputBootstrap)`
+const Image = styled.img`	  
+  transition: 0.5s;
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible; 
+  width: ${({ theme }) => theme.size[48]};
+  height: ${({ theme }) => theme.size[48]};
+  margin-left: ${({ theme }) => theme.size[20]};
+  margin-right: ${({ theme }) => theme.size[5]};
+`;
+
+const Input = styled.input`
+	width: 100%;
 	font-size: 1.5rem;
 	border: none;
 	box-shadow: none;
@@ -45,28 +64,40 @@ const Menu = styled.div`
 	}
 `;
 
-export const MapPage = () => (
-	<div>
-		<Wrapper alignItems='normal' flexDirection='row'>
-			<Toolbar top position='absolute'>
-				<Search>
-					<img src={search} alt='search icon' />
-					<Input type="search" name="search" id="exampleSearch" placeholder="Czego szukasz?" />
-				</Search>
-				<Menu>
-					<Icon pr={20} src={microphone} alt='microphone icon' />
-					<Icon pl={20} src={filters} alt='filter icon' />
-				</Menu>
-			</Toolbar>
-		</Wrapper>
+// let divExample = React.createRef();
+// onKeyPress = (event) => {
+// 	if (event.which === 13 /* Enter */) {
+// 		divExample.current.onClick();
+// 	}
+// };
 
-		<MapContainer />
+export class MapPage extends Component {
+	render() {
+		return (
+			<div>
+				<Wrapper alignItems='normal' flexDirection='row'>
+					<Toolbar top position='absolute'>
+						<Search>
+							<Image onClick={() => this.searchInput.focus()} src={search} alt='search icon'/>
+							<Input onBlur={() => console.log('onBlur event')}
+										 onFocus={() => console.log('onFocus event') } type='search' ref={ip => this.searchInput = ip} name="search" id="exampleSearch" placeholder="Czego szukasz?" />
+						</Search>
+						<Menu>
+							<Icon pr={20} src={microphone} alt='microphone icon'/>
+							<Icon pl={20} src={filters} alt='filter icon'/>
+						</Menu>
+					</Toolbar>
+				</Wrapper>
 
-		<Toolbar bottom>
-			<Icon src={hot} alt='hot places icon' text={'hot'} />
-			<Icon src={map} alt='map icon' text={'mapa'} />
-			<Icon src={list} alt='list of places icon' text={'listy'} />
-			<Icon src={profile} alt='profile icon' text={'profil'} />
-		</Toolbar>
-	</div>
-);
+				<MapContainer/>
+
+				<Toolbar bottom>
+					<Icon to={routes.WELCOME_EXPLORE} src={hot} alt='hot places icon' text={'hot'}/>
+					<Icon src={map} alt='map icon' text={'mapa'}/>
+					<Icon src={list} alt='list of places icon' text={'listy'}/>
+					<Icon src={profile} alt='profile icon' text={'profil'}/>
+				</Toolbar>
+			</div>
+		);
+	}
+}

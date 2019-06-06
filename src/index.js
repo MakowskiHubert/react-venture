@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 import { Context, Firebase } from 'components/Firebase';
 import { theme } from 'constants/theme';
 import { store } from 'ducks/config';
-import { App } from './App';
+import App from './App';
 import 'index.css';
 
 addLocaleData([...en, ...pl]);

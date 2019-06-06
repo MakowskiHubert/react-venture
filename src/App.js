@@ -10,9 +10,18 @@ import { routes } from 'constants/routes';
 import PrevPathUpdater from 'utils/PrevPathUpdater';
 import { ProfilePage } from 'components/Pages/Welcome/ProfilePage';
 import { ListPage } from 'components/Pages/Welcome/ListPage';
+import {updateAuth} from 'ducks/user';
+import { withFirebase } from 'components/Firebase';
+import { connect } from 'react-redux';
 
-export class App extends Component {
+class App extends Component {
 	componentDidMount() {
+		const {firebase, updateAuth} = this.props;
+
+		this.listener = firebase.auth.onAuthStateChanged(authUser => {
+			authUser ? updateAuth(true) : updateAuth(false);
+		});
+
 		let viewHeight = window.outerHeight;
 		let viewWidth = window.outerWidth;
 		let viewport = document.querySelector('meta[name=viewport]');
@@ -50,3 +59,11 @@ export class App extends Component {
 		);
 	}
 }
+
+const mapStateToProps = ({user}) => ({
+	isLogged: user.isLogged
+});
+
+export default withFirebase(
+	connect(mapStateToProps, {updateAuth})(App)
+);

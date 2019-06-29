@@ -14,7 +14,9 @@ export const routes = {
 	PASSWORD_FORGET: '/pw-forget',
 	PASSWORD_RECOVERY: '/pw-recovery',
 	MAP: '/map',
-	PLACE: '/place'
+	PLACE: '/place',
+
+	DEBUG: '/debug'
 };
 
 

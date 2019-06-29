@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { connect } from 'react-redux';
 
 import CollectPage from 'components/Pages/Welcome/CollectPage';
 import ExplorePage from 'components/Pages/Welcome/ExplorePage';
@@ -12,7 +13,7 @@ import { ProfilePage } from 'components/Pages/Welcome/ProfilePage';
 import { ListPage } from 'components/Pages/Welcome/ListPage';
 import {updateAuth} from 'ducks/user';
 import { withFirebase } from 'components/Firebase';
-import { connect } from 'react-redux';
+import Popular from 'components/Lists/Popular';
 
 class App extends Component {
 	componentDidMount() {
@@ -31,7 +32,7 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
-				<Route exact path={routes.WELCOME} component={() => <Redirect from={routes.WELCOME} to={routes.WELCOME_EXPLORE} />}/>
+				<Route exact path={routes.WELCOME} component={() => <Redirect from={routes.WELCOME} to={routes.DEBUG} />}/>
 				<Route
 					render={({ location }) => {
 						return (
@@ -54,6 +55,7 @@ class App extends Component {
 				<Route path={routes.MAP} component={MapPage}/>
 				<Route path={routes.WELCOME_PROFILE} component={ProfilePage}/>
 				<Route path={routes.WELCOME_LIST} component={ListPage}/>
+				<Route path={routes.DEBUG} component={Popular}/>
 				<Route component={null} />
 			</Router>
 		);

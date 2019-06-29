@@ -26,6 +26,8 @@ export const theme = {
 	size: {
 		5: '0.39vmax',
 		10: '0.78vmax',
+		14: '1.09vmax',
+		18: '1.40vmax',
 		20: '1.56vmax',
 		24: '1.87vmax',
 		30: '2.34vmax',
@@ -37,8 +39,8 @@ export const theme = {
 		80: '6.25vmax', // top bar
 		90: '7vmax',
 		100: '7.81vmax',
+		112: '8.75vmax', // bottom bar
 		150: '11.72vmax',
 		200: '15.62vmax',
-		112: '8.75vmax', // bottom bar
 	}
 };

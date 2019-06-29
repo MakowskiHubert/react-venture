@@ -33,7 +33,7 @@ const Text = styled.div`
     font-stretch: condensed;
     line-height: 1.2;
     color: #fff;
-`
+`;
 
 export const Checkbox = ({onClick, checked, emptySymbol, fullSymbol, label, direction}) => (
 	<Wrapper>

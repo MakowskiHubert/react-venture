@@ -5,6 +5,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  margin-top: 50px;
+}
+
 p {
   margin: 0;
   padding: 0;

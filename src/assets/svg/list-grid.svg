@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#3c3c3c}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h33v33H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="Repeat_Grid_13" class="cls-2" data-name="Repeat Grid 13">
+        <g transform="translate(22721 20002)">
+            <path id="Rectangle_476" d="M0 0h7v7H0z" class="cls-3" data-name="Rectangle 476" transform="translate(-22721 -20002)"/>
+        </g>
+        <g transform="translate(22734 20002)">
+            <path id="Rectangle_476-2" d="M0 0h7v7H0z" class="cls-3" data-name="Rectangle 476" transform="translate(-22721 -20002)"/>
+        </g>
+        <g transform="translate(22747 20002)">
+            <path id="Rectangle_476-3" d="M0 0h7v7H0z" class="cls-3" data-name="Rectangle 476" transform="translate(-22721 -20002)"/>
+        </g>
+        <g transform="translate(22721 20015)">
+            <path id="Rectangle_476-4" d="M0 0h7v7H0z" class="cls-3" data-name="Rectangle 476" transform="translate(-22721 -20002)"/>
+        </g>
+        <g transform="translate(22734 20015)">
+            <path id="Rectangle_476-5" d="M0 0h7v7H0z" class="cls-3" data-name="Rectangle 476" transform="translate(-22721 -20002)"/>
+        </g>
+        <g transform="translate(22747 20015)">
+            <path id="Rectangle_476-6" d="M0 0h7v7H0z" class="cls-3" data-name="Rectangle 476" transform="translate(-22721 -20002)"/>
+        </g>
+        <g transform="translate(22721 20028)">
+            <path id="Rectangle_476-7" d="M0 0h7v7H0z" class="cls-3" data-name="Rectangle 476" transform="translate(-22721 -20002)"/>
+        </g>
+        <g transform="translate(22734 20028)">
+            <path id="Rectangle_476-8" d="M0 0h7v7H0z" class="cls-3" data-name="Rectangle 476" transform="translate(-22721 -20002)"/>
+        </g>
+        <g transform="translate(22747 20028)">
+            <path id="Rectangle_476-9" d="M0 0h7v7H0z" class="cls-3" data-name="Rectangle 476" transform="translate(-22721 -20002)"/>
+        </g>
+    </g>
+</svg>

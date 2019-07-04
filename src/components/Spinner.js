@@ -1,33 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MoonLoader } from 'react-spinners';
-import styled from 'styled-components';
+import { RingLoader } from 'react-spinners';
+import styled, { css } from 'styled-components';
 
 const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #eeeff2;
-  z-index: 400;
+  margin: ${({ size }) => css`calc(50% - ${size / 2}px)`};
 `;
 
-export const Spinner = ({ loading, size, color }) => (
-	loading && (
-		<Wrapper>
-			<MoonLoader size={size} color={color} />
+export const Spinner = props => (
+		<Wrapper {...props}>
+			<RingLoader {...props} />
 		</Wrapper>
-	)
 );
 
 Spinner.propTypes = {
-	loading: PropTypes.bool.isRequired
+	color: PropTypes.string,
+	size: PropTypes.number
 };
 
 Spinner.defaultProps = {
 	color: '#0099e5',
-	size: 28
+	size: 60
 };

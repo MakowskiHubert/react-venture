@@ -1,69 +1,82 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Link } from 'components/Link';
+import iconAccent from 'assets/svg/icon-accent.png';
 
 const Wrapper = styled.div`
+	position: relative;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: cursive;
-	padding:
-		${({ pt, theme }) => pt && theme.size[pt]}
-		${({ pr, theme }) => pr && theme.size[pr]}
-		${({ pb, theme }) => pb && theme.size[pb]}
-		${({ pl, theme }) => pl && theme.size[pl]}
 
-  img {
-    width: ${({ theme }) => theme.size[48]};
-    height: ${({ theme }) => theme.size[48]};
-		filter: ${({ active }) => active && 'brightness(0) invert(1)'};
+  img:first-child {
+    width: ${({ theme, width }) => width ? theme.size[width] : theme.size[48]};
+    height: ${({ theme, height }) => height ? theme.size[height] : theme.size[48]};
   }
 
   p {
     margin: 0;
     font-size: 1.2rem;
     font-weight: normal;
-    color: ${({ theme, active }) => active ? '#fff' : theme.colors.primary};
+    color: ${({ theme }) => theme.colors.tertiary};
   }
   
-  :hover {
-    cursor: pointer;
-    filter: ${({ theme, active }) => !active && theme.filters.opacity};
-  }
+  ${({ unlight }) => !unlight && css`
+		img:first-child, p {
+	    filter: ${({ reversefilter }) => reversefilter ? 'grayscale(100%) opacity(50%)' : 'none'};
+	  }
+	  
+	  :hover {
+	    cursor: pointer;
+	    
+	    img:first-child, p {
+	      filter: ${({ reversefilter }) => reversefilter ? 'none' : 'grayscale(100%) opacity(50%)'};
+	    }
+	  }
+	`};
 `;
 
-export const Icon = ({onClick, src, alt, text, to, pt, pr, pb, pl, color}) =>
-	to ? (
-		<Wrapper as={Link} to={to} onClick={onClick} pt={pt} pr={pr} pb={pb} pl={pl} color={color}>
-			<img src={src} alt={alt}/><p>{text}</p>
-		</Wrapper>
-	) : (
-		<Wrapper onClick={onClick} pt={pt} pr={pr} pb={pb} pl={pl} color={color}>
-			<img src={src} alt={alt}/><p>{text}</p>
-		</Wrapper>
-	);
+const Accent = styled.img`
+	position: absolute;
+	width: ${({ theme }) => theme.size[150]};
+	height: ${({ theme }) => theme.size[150]};
+	z-index: -1;
+`;
+
+export const Icon = props =>
+		props.to ? (
+				<Wrapper as={Link} {...props}>
+					<img src={props.src} alt={props.alt}/>
+					{props.text && <p>{props.text}</p>}
+				</Wrapper>
+		) : (
+				<Wrapper {...props}>
+					<img src={props.src} alt={props.alt}/>
+					{props.text && <p>{props.text}</p>}
+					{props.accent && <Accent src={iconAccent} alt='Accent icon'/>}
+				</Wrapper>
+		);
 
 Icon.propTypes = {
 	src: PropTypes.string.isRequired,
 	alt: PropTypes.string.isRequired,
+	reversefilter: PropTypes.number,
+	accent: PropTypes.bool,
+	width: PropTypes.number,
+	height: PropTypes.number,
 	onClick: PropTypes.func,
 	text: PropTypes.oneOfType([
 		PropTypes.element,
 		PropTypes.string
 	]),
-	pt: PropTypes.number,
-	pr: PropTypes.number,
-	pb: PropTypes.number,
-	pl: PropTypes.number,
 	color: PropTypes.string
 };
 
-Icon.defaultProps = {
-	pt: 5,
-	pr: 5,
-	pb: 5,
-	pl: 5
+Icon.defaultProp = {
+	reversefilter: 0,
+	accent: false
 };

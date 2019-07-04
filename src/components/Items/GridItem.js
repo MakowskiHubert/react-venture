@@ -12,7 +12,7 @@ const Image = styled.img`
  	border-radius: ${({ theme }) => theme.size[20]};
 `;
 
-export const ItemPopular = ({ data }) => (
+export const GridItem = ({ data }) => (
 	<Wrapper>
 		<Image src={data.image} alt={'Krajobraz ' + data.name}/>
 	</Wrapper>

@@ -13,7 +13,7 @@ import { ProfilePage } from 'components/Pages/Welcome/ProfilePage';
 import { ListPage } from 'components/Pages/Welcome/ListPage';
 import {updateAuth} from 'ducks/user';
 import { withFirebase } from 'components/Firebase';
-import Popular from 'components/Lists/Popular';
+import Main from 'components/Lists/Main';
 
 class App extends Component {
 	componentDidMount() {
@@ -55,7 +55,7 @@ class App extends Component {
 				<Route path={routes.MAP} component={MapPage}/>
 				<Route path={routes.WELCOME_PROFILE} component={ProfilePage}/>
 				<Route path={routes.WELCOME_LIST} component={ListPage}/>
-				<Route path={routes.DEBUG} component={Popular}/>
+				<Route path={routes.DEBUG} component={Main}/>
 				<Route component={null} />
 			</Router>
 		);

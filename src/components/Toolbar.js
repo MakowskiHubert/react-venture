@@ -33,8 +33,7 @@ const Wrapper = styled.div`
   `};
 `;
 
-export const Toolbar = ({ children, top, bottom, position, alignItems, justifyContent }) =>
-	<Wrapper top={top} bottom={bottom} position={position} alignItems={alignItems} justifyContent={justifyContent}>{children}</Wrapper>;
+export const Toolbar = props => <Wrapper {...props}>{props.children}</Wrapper>;
 
 Toolbar.propTypes = {
 	children: PropTypes.oneOfType([

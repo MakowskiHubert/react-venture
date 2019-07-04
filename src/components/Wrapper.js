@@ -4,9 +4,12 @@ import styled, { css } from 'styled-components';
 
 const StyledWrapper = styled.div`
 	  display: ${({ display }) => display};
+	  position: ${({ position }) => position};
 		align-items: ${({ alignItems }) => alignItems};
 	  justify-content: ${({ justifyContent }) => justifyContent};
 	  flex-direction: ${({ flexDirection }) => flexDirection};
+	  width: ${({ width }) => width};
+	  height: ${({ height }) => height};
 	  background-color: ${({ color }) => color};
 	
 		//margin
@@ -62,8 +65,11 @@ Wrapper.propTypes = {
 		PropTypes.element
 	]).isRequired,
 	display: PropTypes.string,
+	position: PropTypes.string,
 	alignItems: PropTypes.string,
 	justifyContent: PropTypes.string,
+	width: PropTypes.string,
+	height: PropTypes.string,
 	margin: PropTypes.number,
 	mv: PropTypes.number,
 	mh: PropTypes.number,

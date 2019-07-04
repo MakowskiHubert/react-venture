@@ -1,9 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="map" width="48" height="48" viewBox="0 0 48 48">
+<svg xmlns="http://www.w3.org/2000/svg" width="81" height="81" viewBox="0 0 81 81">
     <defs>
         <style>
-            .cls-1{fill:#007fff}.cls-2{fill:none}
+            .cls-1{fill:url(#linear-gradient)}.cls-2{fill:none}.cls-3{filter:url(#Path_15)}
         </style>
+        <linearGradient id="linear-gradient" x1="-.033" x2="1" y1="-.031" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#5983cb"/>
+            <stop offset="1" stop-color="#00c4ff"/>
+        </linearGradient>
+        <filter id="Path_15" width="81" height="81" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="6"/>
+            <feGaussianBlur result="blur" stdDeviation="7.5"/>
+            <feFlood flood-color="#1caeee" flood-opacity=".298"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
     </defs>
-    <path id="Path_15" d="M38 3l-.32.06L27 7.2 15 3 3.72 6.8a1.008 1.008 0 0 0-.72.96V38a.99.99 0 0 0 1 1l.32-.06L15 34.8 27 39l11.28-3.8a1.008 1.008 0 0 0 .72-.96V4a.99.99 0 0 0-1-1zM17 7.94l8 2.8v23.32l-8-2.8zM7 9.92l6-2.02v23.4l-6 2.32zm28 22.16l-6 2.02V10.72l6-2.32z" class="cls-1" data-name="Path 15" transform="translate(3 3)"/>
-    <path id="Path_16" d="M0 0h48v48H0z" class="cls-2" data-name="Path 16"/>
+    <g id="map_active" data-name="map active" transform="translate(16.5 10.5)">
+        <g class="cls-3" transform="translate(-16.5 -10.5)">
+            <path id="Path_15-2" d="M38 3l-.32.06L27 7.2 15 3 3.72 6.8a1.008 1.008 0 0 0-.72.96V38a.99.99 0 0 0 1 1l.32-.06L15 34.8 27 39l11.28-3.8a1.008 1.008 0 0 0 .72-.96V4a.99.99 0 0 0-1-1zM27 35l-12-4.22V7l12 4.22z" class="cls-1" data-name="Path 15" transform="translate(19.5 13.5)"/>
+        </g>
+        <path id="Path_16" d="M0 0h48v48H0z" class="cls-2" data-name="Path 16"/>
+    </g>
 </svg>

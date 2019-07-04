@@ -39,7 +39,7 @@ const Image = styled.img`
 	width: ${({ theme }) => theme.size[20]};
   height: ${({ theme }) => theme.size[20]};
   margin-right: ${({ theme }) => theme.size[10]};
-  margin-bottom: -4px;
+  margin-bottom: 2px;
 `;
 
 const { Option } = components;

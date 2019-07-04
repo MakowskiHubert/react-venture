@@ -13,7 +13,7 @@ const Title = styled['h1']`
 	position: absolute;
 	left: 8.33vw;
 	bottom: 2.73vh;
-  font-size: ${({ theme }) => theme.size[40]};;
+  font-size: 1.4rem;
   font-weight: bold;
   font-style: italic;
   color: #fff;
@@ -27,7 +27,7 @@ const Image = styled.img`
 	width: 91vw;
 `;
 
-export const ItemCategory = ({ data }) => (
+export const CategoryItem = ({ data }) => (
 	<Wrapper>
 		<Title>{data.name}</Title>
 		<Image src={data.image} alt={'Kategoria ' + data.name}/>

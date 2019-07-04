@@ -28,32 +28,80 @@ import listIcon from 'assets/svg/list.svg';
 import profileIcon from 'assets/svg/profile.svg';
 import listGrid from 'assets/svg/list-grid.svg';
 import listGroup from 'assets/svg/list-group-TEMP.png';
+import { ListItem } from 'components/Items/ListItem';
 
 export const mode = {
 	list: 'list',
 	grid: 'grid'
 };
 
-const listPopular = [
+const popularList = [
 	{
+		'image': img_francja,
 		'name': 'Francja',
-		'image': img_francja
+		'title': 'Nowostany',
+		'distance': 64,
+		'votes': 32,
+		'rating': 5
 	},
 	{
+		'image': img_hiszpania,
 		'name': 'Hiszpania',
-		'image': img_hiszpania
+		'title': 'Śniardwy',
+		'distance': 0.8,
+		'votes': 15,
+		'rating': 5
 	},
 	{
+		'image': img_stany_zjednoczone,
 		'name': 'Stany Zjednoczone',
-		'image': img_stany_zjednoczone
+		'title': 'Jezioro Popielate',
+		'distance': 25,
+		'votes': 22,
+		'rating': 4.5
 	},
 	{
+		'image': img_chiny,
 		'name': 'Chiny',
-		'image': img_chiny
+		'title': 'Chinizeo',
+		'distance': 486,
+		'votes': 5482,
+		'rating': 4.78
 	},
 	{
+		'image': img_rzym,
 		'name': 'Włochy',
-		'image': img_rzym
+		'title': 'Plaża Uguhakwu',
+		'distance': 12,
+		'votes': 4,
+		'rating': 3
+	}
+];
+
+const ratedList = [
+	{
+		'image': img_hiszpania,
+		'name': 'Hiszpania',
+		'title': 'Śniardwy',
+		'distance': 0.8,
+		'votes': 15,
+		'rating': 5
+	},
+	{
+		'image': img_chiny,
+		'name': 'Chiny',
+		'title': 'Chinizeo',
+		'distance': 486,
+		'votes': 5482,
+		'rating': 4.78
+	},
+	{
+		'image': img_francja,
+		'name': 'Francja',
+		'title': 'Nowostany',
+		'distance': 64,
+		'votes': 32,
+		'rating': 5
 	}
 ];
 
@@ -123,13 +171,13 @@ export default class Main extends Component {
 
 	render() {
 		const { indexActiveTab, isLoading, viewMode } = this.state;
+		const gridMode = viewMode === mode.grid;
 
 		return (
 				<div>
 					<Header>
 						<Select isLoading={isLoading} onChange={this.handleCountryChange} />
-
-						{viewMode === mode.grid ?
+						{gridMode ?
 								<Icon unlight onClick={this.handleViewMode} src={listGroup} alt="List of group" width={33} height={33}/> :
 								<Icon unlight onClick={this.handleViewMode} src={listGrid} alt="List of grid" width={33} height={33}/>
 						}
@@ -153,11 +201,11 @@ export default class Main extends Component {
 									onChangeIndex={this.handleTabIndexChange}
 							>
 								<Wrapper mh={18}>
-									<ListView list={listPopular} Component={viewMode === mode.grid ? GridItem : GridItem} columnCount={3}/>
+									<ListView list={popularList} Component={gridMode ? GridItem : ListItem} columnCount={gridMode ? 3 : 1}/>
 								</Wrapper>
 
 								<Wrapper mh={40}>
-									<ListView list={listPopular} Component={viewMode === mode.grid ? GridItem : GridItem} columnCount={3}/>
+									<ListView list={ratedList} Component={gridMode ? GridItem : ListItem} columnCount={gridMode ? 3 : 1}/>
 								</Wrapper>
 							</SwipeableViews>
 					)}
@@ -165,7 +213,7 @@ export default class Main extends Component {
 					<Toolbar bottom activeItem={3} reversefilter={1}>
 						<Icon src={hotIcon} to={routes.WELCOME_EXPLORE} alt='top places icon' text='top'/>
 						<Icon src={nearIcon} alt='near places icon' text='blisko'/>
-						<Icon accent src={mapIcon} alt='map icon' text='mapa'/>
+						<Icon src={mapIcon} alt='map icon' text='mapa' accent/>
 						<Icon src={listIcon} alt='list of places icon' text='listy'/>
 						<Icon src={profileIcon} alt='profile icon' text='profil'/>
 					</Toolbar>

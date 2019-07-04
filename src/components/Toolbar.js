@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
@@ -33,7 +33,24 @@ const Wrapper = styled.div`
   `};
 `;
 
-export const Toolbar = props => <Wrapper {...props}>{props.children}</Wrapper>;
+export class Toolbar extends Component {
+	state = {
+		activeItem: this.props.activeItem
+	};
+
+	render() {
+		const { activeItem } = this.state;
+		const { reversefilter } = this.props;
+
+		const children = React.Children.map(this.props.children, (child, index) => React.cloneElement(child, {
+			onClick: () => this.setState({ activeItem: index }),
+			active: activeItem === index ? true : undefined,
+			reversefilter
+		}));
+
+		return <Wrapper {...this.props}>{children}</Wrapper>;
+	}
+}
 
 Toolbar.propTypes = {
 	children: PropTypes.oneOfType([

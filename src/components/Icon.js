@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import { Link } from 'components/Link';
-import iconAccent from 'assets/svg/icon-accent.png';
+import indicatorBar from 'assets/svg/indicator-bar.svg';
 
 const Wrapper = styled.div`
 	position: relative;
@@ -30,13 +30,11 @@ const Wrapper = styled.div`
 	    filter: ${({ reversefilter }) => reversefilter ? 'grayscale(100%) opacity(50%)' : 'none'};
 	  }
 	  
-	  :hover {
-	    cursor: pointer;
-	    
-	    img:first-child, p {
+	  ${({ active }) => active && css`
+			img:first-child, p {
 	      filter: ${({ reversefilter }) => reversefilter ? 'none' : 'grayscale(100%) opacity(50%)'};
 	    }
-	  }
+		`};
 	`};
 `;
 
@@ -57,7 +55,7 @@ export const Icon = props =>
 				<Wrapper {...props}>
 					<img src={props.src} alt={props.alt}/>
 					{props.text && <p>{props.text}</p>}
-					{props.accent && <Accent src={iconAccent} alt='Accent icon'/>}
+					{props.accent && <Accent src={indicatorBar} alt='Accent icon'/>}
 				</Wrapper>
 		);
 
@@ -65,7 +63,9 @@ Icon.propTypes = {
 	src: PropTypes.string.isRequired,
 	alt: PropTypes.string.isRequired,
 	reversefilter: PropTypes.number,
+	unlight: PropTypes.bool,
 	accent: PropTypes.bool,
+	active: PropTypes.bool,
 	width: PropTypes.number,
 	height: PropTypes.number,
 	onClick: PropTypes.func,
@@ -78,5 +78,7 @@ Icon.propTypes = {
 
 Icon.defaultProp = {
 	reversefilter: 0,
+	unlight: false,
+	active: false,
 	accent: false
 };

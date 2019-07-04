@@ -162,12 +162,12 @@ export default class Main extends Component {
 							</SwipeableViews>
 					)}
 
-					<Toolbar bottom>
-						<Icon reversefilter={1} to={routes.WELCOME_EXPLORE} src={hotIcon} alt='top places icon' text='top'/>
-						<Icon reversefilter={1} src={nearIcon} alt='near places icon' text='blisko'/>
-						<Icon reversefilter={1} accent src={mapIcon} alt='map icon' text='mapa'/>
-						<Icon reversefilter={1} src={listIcon} alt='list of places icon' text='listy'/>
-						<Icon reversefilter={1} src={profileIcon} alt='profile icon' text='profil'/>
+					<Toolbar bottom activeItem={3} reversefilter={1}>
+						<Icon src={hotIcon} to={routes.WELCOME_EXPLORE} alt='top places icon' text='top'/>
+						<Icon src={nearIcon} alt='near places icon' text='blisko'/>
+						<Icon accent src={mapIcon} alt='map icon' text='mapa'/>
+						<Icon src={listIcon} alt='list of places icon' text='listy'/>
+						<Icon src={profileIcon} alt='profile icon' text='profil'/>
 					</Toolbar>
 				</div>
 		);

@@ -44,7 +44,7 @@ export class Toolbar extends Component {
 
 		const children = React.Children.map(this.props.children, (child, index) => React.cloneElement(child, {
 			onClick: () => this.setState({ activeItem: index }),
-			active: activeItem === index ? true : undefined,
+			active: activeItem === index ? 1 : 0,
 			reversefilter
 		}));
 

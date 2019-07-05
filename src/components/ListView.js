@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Wrapper = styled['ul']`
-		column-count: ${({ columnCount }) =>  columnCount};
-  	column-gap: 0;
+const Wrapper = styled.div`
+		position: relative;
+`;
+
+const List = styled['ul']`
+		column-count: ${({ columnCount }) => columnCount};
+	  column-gap: 0;
 		padding: 0;
 `;
 
@@ -23,11 +27,13 @@ export class ListView extends Component {
 		const { Component } = this.props;
 
 		return (
-			<Wrapper {...this.props}>
-				{list.map((data, index) => (
-					<Component data={data} key={index} active={activeElement === index} />
-				))}
-			</Wrapper>
+				<Wrapper>
+					<List {...this.props}>
+						{list.map((data, index) => (
+								<Component data={data} key={index} active={activeElement === index}/>
+						))}
+					</List>
+				</Wrapper>
 		);
 	}
 }

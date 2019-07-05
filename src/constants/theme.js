@@ -28,6 +28,7 @@ export const theme = {
 		5: '0.39vmax',
 		10: '0.78vmax',
 		14: '1.09vmax',
+		16: '1.25vmax',
 		18: '1.40vmax',
 		20: '1.56vmax',
 		24: '1.87vmax',

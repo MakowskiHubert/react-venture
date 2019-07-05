@@ -7,10 +7,21 @@ import votesIcon from 'assets/svg/votes.svg';
 import emptyStar from 'assets/svg/star-empty.svg';
 import fullStar from 'assets/svg/star-full.svg';
 
-const Wrapper = styled.div`
+const StyledWrapper = styled.div`
 	display: flex;
 	position: relative;
-	margin-top: ${({ theme }) => theme.size[30]};
+	padding: ${({ theme }) => theme.size[30]} 0;
+	margin: 0 ${({ theme }) => theme.size[16]};
+	border-bottom: 1px solid #ccc;
+`;
+
+const BorderMask = styled.div`
+	position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 25%;
+  height: 3px;
+  background-color:#fff;
 `;
 
 const Title = styled.p`
@@ -41,7 +52,8 @@ const Votes = styled.div`
 `;
 
 export const ListItem = ({ data }) => (
-		<Wrapper>
+		<StyledWrapper>
+			<BorderMask/>
 			<Image src={data.image} alt={'Miejsce ' + data.name}/>
 			<Column>
 				<Title>{data.title}</Title>
@@ -55,5 +67,5 @@ export const ListItem = ({ data }) => (
 						fullSymbol={<img src={fullStar} alt="Full star"/>}
 				/>
 			</Column>
-		</Wrapper>
+		</StyledWrapper>
 );

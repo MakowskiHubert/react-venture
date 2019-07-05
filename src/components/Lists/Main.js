@@ -14,7 +14,6 @@ import { Toolbar } from 'components/Toolbar';
 import { Icon } from 'components/Icon';
 import { Spinner } from 'components/Spinner';
 import { Select } from 'components/Select';
-import { routes } from 'constants/routes';
 
 import img_francja from 'assets/popular/francja.jpg';
 import img_hiszpania from 'assets/popular/hiszpania.jpg';
@@ -198,6 +197,8 @@ export default class Main extends Component {
 							<SwipeableViews
 									axis="x"
 									index={indexActiveTab}
+									style={{ height: '75vmax' }}
+									containerStyle={{ height: 'inherit' }}
 									onChangeIndex={this.handleTabIndexChange}
 							>
 								<Wrapper mh={18}>
@@ -210,8 +211,8 @@ export default class Main extends Component {
 							</SwipeableViews>
 					)}
 
-					<Toolbar bottom activeItem={3} reversefilter={1}>
-						<Icon src={hotIcon} to={routes.WELCOME_EXPLORE} alt='top places icon' text='top'/>
+					<Toolbar bottom activeItem={0} reversefilter={1}>
+						<Icon src={hotIcon} alt='top places icon' text='top'/>
 						<Icon src={nearIcon} alt='near places icon' text='blisko'/>
 						<Icon src={mapIcon} alt='map icon' text='mapa' accent/>
 						<Icon src={listIcon} alt='list of places icon' text='listy'/>

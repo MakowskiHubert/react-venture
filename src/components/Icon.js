@@ -65,7 +65,7 @@ Icon.propTypes = {
 	reversefilter: PropTypes.number,
 	unlight: PropTypes.bool,
 	accent: PropTypes.bool,
-	active: PropTypes.bool,
+	active: PropTypes.number,
 	width: PropTypes.number,
 	height: PropTypes.number,
 	onClick: PropTypes.func,

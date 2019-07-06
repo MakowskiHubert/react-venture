@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import MapContainer from 'components/Map/Map';
 import { Toolbar } from 'components/Toolbar';
 import { Icon } from 'components/Icon';
-import hot from 'assets/svg/hot.svg';
-import map from 'assets/svg/map.svg';
-import list from 'assets/svg/list.svg';
-import profile from 'assets/svg/profile.svg';
+import { Wrapper } from 'components/Wrapper';
+
+import hotIcon from 'assets/svg/hot.svg';
+import nearIcon from 'assets/svg/near.svg';
+import mapIcon from 'assets/svg/map.svg';
+import listIcon from 'assets/svg/list.svg';
+import profileIcon from 'assets/svg/profile.svg';
 import search from 'assets/svg/search.svg';
 import microphone from 'assets/svg/microphone.svg';
 import filters from 'assets/svg/filters.svg';
-import { Wrapper } from 'components/Wrapper';
-import styled from 'styled-components';
-import { routes } from 'constants/routes';
 
 const Search = styled.div`
 	display: flex;
@@ -64,18 +65,12 @@ const Menu = styled.div`
 	}
 `;
 
-// let divExample = React.createRef();
-// onKeyPress = (event) => {
-// 	if (event.which === 13 /* Enter */) {
-// 		divExample.current.onClick();
-// 	}
-// };
-
+// 'calc(100% - 8.75vmax)'
 export class MapPage extends Component {
 	render() {
 		return (
 			<div>
-				<Wrapper alignItems='normal' flexDirection='row'>
+				<Wrapper display='flex' justifyContent='center'>
 					<Toolbar top position='absolute'>
 						<Search>
 							<Image onClick={() => this.searchInput.focus()} src={search} alt='search icon'/>
@@ -89,13 +84,12 @@ export class MapPage extends Component {
 					</Toolbar>
 				</Wrapper>
 
-				<MapContainer/>
-
-				<Toolbar bottom>
-					<Icon to={routes.WELCOME_EXPLORE} src={hot} alt='hot places icon' text={'hot'}/>
-					<Icon src={map} alt='map icon' text={'mapa'}/>
-					<Icon src={list} alt='list of places icon' text={'listy'}/>
-					<Icon src={profile} alt='profile icon' text={'profil'}/>
+				<Toolbar bottom activeItem={0} reversefilter={1}>
+					<Icon src={hotIcon} alt='top places icon' text='top'/>
+					<Icon src={nearIcon} alt='near places icon' text='blisko'/>
+					<Icon src={mapIcon} alt='map icon' text='mapa' accent/>
+					<Icon src={listIcon} alt='list of places icon' text='listy'/>
+					<Icon src={profileIcon} alt='profile icon' text='profil'/>
 				</Toolbar>
 			</div>
 		);

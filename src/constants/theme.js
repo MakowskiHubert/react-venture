@@ -21,6 +21,7 @@ export const theme = {
 		invert: 'invert(100%)',
 		sepia: 'sepia(100%)',
 		huerotate: 'hue-rotate(180deg)',
+		iconOpacity: 'opacity(65%)',
 		opacity: 'opacity(50%)'
 	},
 	/* for width and height pattern: px * 100 / vmax  5*100/1280 */
@@ -40,6 +41,7 @@ export const theme = {
 		62: '4.84vmax',
 		70: '5.47vmax',
 		80: '6.25vmax', // top bar
+		85: '6.64vmax',
 		90: '7vmax',
 		100: '7.81vmax',
 		112: '8.75vmax', // bottom bar

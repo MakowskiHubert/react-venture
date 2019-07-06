@@ -14,6 +14,8 @@ import { ListPage } from 'components/Pages/Welcome/ListPage';
 import {updateAuth} from 'ducks/user';
 import { withFirebase } from 'components/Firebase';
 import Main from 'components/Lists/Main';
+import Category from 'components/Lists/Category';
+import { LocationPage } from 'components/Pages/LocationPage';
 
 class App extends Component {
 	componentDidMount() {
@@ -55,7 +57,7 @@ class App extends Component {
 				<Route path={routes.MAP} component={MapPage}/>
 				<Route path={routes.WELCOME_PROFILE} component={ProfilePage}/>
 				<Route path={routes.WELCOME_LIST} component={ListPage}/>
-				<Route path={routes.DEBUG} component={Main}/>
+				<Route path={routes.DEBUG} component={LocationPage}/>
 				<Route component={null} />
 			</Router>
 		);

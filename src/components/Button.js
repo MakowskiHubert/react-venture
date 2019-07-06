@@ -9,7 +9,6 @@ const Wrapper = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
   font-weight: 500;
   font-size: 1.4rem;
   background-color: #fff;
@@ -103,6 +102,7 @@ const Wrapper = styled.button`
 		height: ${height}
 	`}
 `;
+
 export const Button = (props) => (
 	props.to ? (
 		<Link to={props.to}>

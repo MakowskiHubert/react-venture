@@ -1,25 +1,21 @@
 import React, {Component} from 'react';
-import {Map, GoogleApiWrapper} from 'google-maps-react';
+import PropTypes from 'prop-types';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { mapStyles } from './MapStyles';
-
-const rootStyles = {
-	width: '100%',
-	height: 'calc(100% - 8.75vmax)'
-};
 
 export class MapContainer extends Component {
 	render() {
-		const { google } = this.props;
+		const { google, width, height, lat, lng } = this.props;
 		return (
 			<Map
 				google={google}
-				zoom={14}
-				style={rootStyles}
-				styles={mapStyles}
-				initialCenter={{
-					lat: -1.2884,
-					lng: 36.8233
+				zoom={8}
+				style={{
+					width,
+					height
 				}}
+				styles={mapStyles}
+				initialCenter={{ lat, lng }}
 				disableDefaultUI={true}
 				// panControl={true}
 				// zoomControl={true}
@@ -28,7 +24,9 @@ export class MapContainer extends Component {
 				// streetViewControl={false}
 				// overviewMapControl={true}
 				// rotateControl={true}
-			/>
+			>
+				<Marker position={{ lat, lng }} />
+			</Map>
 		);
 	}
 }
@@ -36,3 +34,13 @@ export class MapContainer extends Component {
 export default GoogleApiWrapper({
 	apiKey: process.env.REACT_APP_GOOGLE_CLOUD_API_KEY
 })(MapContainer);
+
+MapContainer.propTypes = {
+	width: PropTypes.string,
+	height: PropTypes.string
+};
+
+MapContainer.defaultProps = {
+	width: '100%',
+	height: '100%'
+};

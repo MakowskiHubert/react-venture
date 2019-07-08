@@ -15,6 +15,9 @@ export const routes = {
 	PASSWORD_RECOVERY: '/pw-recovery',
 	MAP: '/map',
 	PLACE: '/place',
+	LISTS_CATEGORY: '/lists-category',
+	LISTS_MAIN: '/lists-main',
+	LISTS_NEAR: '/lists-near',
 
 	DEBUG: '/debug'
 };

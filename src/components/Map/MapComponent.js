@@ -1,32 +1,76 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Map, Marker } from 'google-maps-react';
+
 import { mapStyles } from './MapStyles';
 
-export class MapComponent extends Component {
+import pinMarker from 'assets/svg/pin-locate.svg';
+
+const icon = { url: pinMarker, scaledSize: { width: 80, height: 80 } };
+
+export default class MapComponent extends Component {
+	state = {
+		showingInfoWindow: false,
+		activeMarker: {},
+		selectedPlace: {}
+	};
+
+	onMarkerClick = (props, marker, e) => {
+		this.setState({
+			selectedPlace: props,
+			activeMarker: marker,
+			showingInfoWindow: true
+		});
+	};
+
+	onMapClicked = props => {
+		if (this.state.showingInfoWindow) {
+			this.setState({
+				showingInfoWindow: false,
+				activeMarker: null
+			});
+		}
+	};
+
+	onMarkerDragEnd = (e, props) => {
+		const { onPostionChange } = this.props;
+
+		const place = {
+			geometry: {
+				location: props.position
+			}
+		};
+
+		onPostionChange(place);
+	};
+
 	render() {
-		const { google, width, height, lat, lng } = this.props;
+		const { position, google, width, height, centerFromGps } = this.props;
+
 		return (
-			<Map
-				google={google}
-				zoom={8}
-				style={{
-					width,
-					height
-				}}
-				styles={mapStyles}
-				initialCenter={{ lat, lng }}
-				disableDefaultUI={true}
-				// panControl={true}
-				// zoomControl={true}
-				// mapTypeControl={true}
-				// scaleControl={true}
-				// streetViewControl={false}
-				// overviewMapControl={true}
-				// rotateControl={true}
-			>
-				<Marker position={{ lat, lng }} />
-			</Map>
+				<Map
+						onClick={this.onMapClicked}
+						google={google}
+						zoom={12}
+						style={{
+							width,
+							height
+						}}
+						styles={mapStyles}
+						initialCenter={position}
+						center={position}
+						disableDefaultUI={true}
+						centerAroundCurrentLocation={centerFromGps}
+				>
+					<Marker
+							icon={icon}
+							draggable
+							onDragend={this.onMarkerDragEnd}
+							position={position}
+							onClick={this.onMarkerClick}
+							animation={google.maps.Animation.DROP}
+					/>
+				</Map>
 		);
 	}
 }

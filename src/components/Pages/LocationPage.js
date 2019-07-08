@@ -4,8 +4,10 @@ import Autocomplete from 'react-google-autocomplete';
 import Ink from 'react-ink';
 
 import { Img } from 'components/Img';
-import { MapComponent } from 'components/Map/MapComponent';
+import MapComponent from 'components/Map/MapComponent';
 import locationIcon from 'assets/svg/my-location.svg';
+import { Link } from 'react-router-dom';
+import { routes } from 'constants/routes';
 
 const SearchField = styled.div`
 	position: absolute;
@@ -24,10 +26,8 @@ const StyledAutocomplete = styled(Autocomplete)`
   padding-left: ${({ theme }) => theme.size[30]};
   padding-right: ${({ theme }) => theme.size[150]};
   background-color: #fff;
-  
   font-weight: 800;
 
-  
   :focus {
 	  outline: none;
 	  border: 2px solid dodgerblue;
@@ -53,6 +53,11 @@ const AcceptButton = styled.div`
 	font-size: 1.6rem;
 	color: #fff;
 	text-align: center;
+	
+	:hover {
+		text-decoration: none;
+		color: #fff;
+	}
 `;
 
 const WrapperIcon = styled.div`
@@ -67,36 +72,82 @@ const WrapperIcon = styled.div`
 
 export class LocationPage extends Component {
 	state = {
-		latitude: 52.2297,
-		longitude: 21.0122
+		position: {
+			lat: 52.2297,
+			lng: 21.0122
+		},
+		error: null
 	};
 
 	handleUpdatePlace = place => {
 		const { location } = place.geometry;
-		this.setState({ latitude: location.lat(), longitude: location.lng() });
+
+		this.setState({
+			position: {
+				lat: location.lat(),
+				lng: location.lng()
+			}
+		});
+	};
+
+	handleSelectPlace = place => {
+		this.handleUpdatePlace(place);
+	};
+
+	handleMarkerMove = place => {
+		this.inputAutocomplete.refs.input.value = '';
+		this.inputAutocomplete.refs.input.placeholder = 'Lokalizacja markera';
+		this.handleUpdatePlace(place);
+	};
+
+	handleCenterFromGps = () => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(position => {
+				this.inputAutocomplete.refs.input.value = '';
+				this.inputAutocomplete.refs.input.placeholder = 'Lokalizacja GPS';
+				this.setState({
+					position: {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					}
+				});
+			}, error => {
+				alert('Error occurred. ' + error.message);
+			});
+		} else {
+			alert('no geolocation support');
+		}
 	};
 
 	render() {
-		const { latitude, longitude } = this.state;
+		const { position } = this.state;
 
 		return (
 				<div>
 					<SearchField>
 						<StyledAutocomplete
 								types={['address']}
-								onPlaceSelected={this.handleUpdatePlace}
+								onPlaceSelected={this.handleSelectPlace}
 								componentRestrictions={{ country: 'pl' }}
+								ref={input => this.inputAutocomplete = input}
 								placeholder='Podaj adres'
 						/>
-						<WrapperIcon>
+						<WrapperIcon onClick={this.handleCenterFromGps}>
 							<Img src={locationIcon} alt='Location icon'/>
 						</WrapperIcon>
-						<AcceptButton>
+						<AcceptButton as={Link} to={{
+							pathname: routes.LISTS_NEAR,
+							state: { position: position }
+						}}>
 							<Ink/>OK
 						</AcceptButton>
 					</SearchField>
 
-					<MapComponent lat={latitude} lng={longitude} isMarkerShown/>
+					<MapComponent
+							isMarkerShown
+							position={position}
+							onPostionChange={this.handleMarkerMove}
+					/>
 				</div>
 		);
 	}

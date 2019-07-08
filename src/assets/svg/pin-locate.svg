@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="116" height="140" viewBox="0 0 116 140">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#ff5252}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h116v140H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="pin_locate" class="cls-2" data-name="pin locate">
+        <path id="Path_739" d="M33 2A27.98 27.98 0 0 0 5 30c0 21 28 52 28 52s28-31 28-52A27.98 27.98 0 0 0 33 2zm0 38a10 10 0 1 1 10-10 10 10 0 0 1-10 10z" class="cls-3" data-name="Path 739" transform="translate(25 28)"/>
+    </g>
+</svg>

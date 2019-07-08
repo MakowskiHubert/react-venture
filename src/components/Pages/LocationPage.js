@@ -4,8 +4,8 @@ import Autocomplete from 'react-google-autocomplete';
 import Ink from 'react-ink';
 
 import { Img } from 'components/Img';
+import { MapComponent } from 'components/Map/MapComponent';
 import locationIcon from 'assets/svg/my-location.svg';
-import MapContainer from 'components/Map/Map';
 
 const SearchField = styled.div`
 	position: absolute;
@@ -24,6 +24,9 @@ const StyledAutocomplete = styled(Autocomplete)`
   padding-left: ${({ theme }) => theme.size[30]};
   padding-right: ${({ theme }) => theme.size[150]};
   background-color: #fff;
+  
+  font-weight: 800;
+
   
   :focus {
 	  outline: none;
@@ -93,7 +96,7 @@ export class LocationPage extends Component {
 						</AcceptButton>
 					</SearchField>
 
-					<MapContainer lat={latitude} lng={longitude}/>
+					<MapComponent lat={latitude} lng={longitude} isMarkerShown/>
 				</div>
 		);
 	}

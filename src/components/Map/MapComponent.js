@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, Marker } from 'google-maps-react';
 import { mapStyles } from './MapStyles';
 
-export class MapContainer extends Component {
+export class MapComponent extends Component {
 	render() {
 		const { google, width, height, lat, lng } = this.props;
 		return (
@@ -31,16 +31,14 @@ export class MapContainer extends Component {
 	}
 }
 
-export default GoogleApiWrapper({
-	apiKey: process.env.REACT_APP_GOOGLE_CLOUD_API_KEY
-})(MapContainer);
-
-MapContainer.propTypes = {
+MapComponent.propTypes = {
+	google: PropTypes.object,
 	width: PropTypes.string,
 	height: PropTypes.string
 };
 
-MapContainer.defaultProps = {
+MapComponent.defaultProps = {
+	google: window.google,
 	width: '100%',
 	height: '100%'
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import MapContainer from 'components/Map/Map';
+import MapContainer from 'components/Map/MapComponent';
 import { Toolbar } from 'components/Toolbar';
 import { Icon } from 'components/Icon';
 import { Wrapper } from 'components/Wrapper';

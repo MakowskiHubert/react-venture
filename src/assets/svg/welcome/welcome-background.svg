@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1280" viewBox="0 0 720 1280">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#fff}.cls-3{clip-path:url(#clip-path)}.cls-4{opacity:.2}.cls-4,.cls-5{fill:url(#linear-gradient)}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h720v674.48H0z" class="cls-1"/>
+        </clipPath>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#5983cb"/>
+            <stop offset="1" stop-color="#00c4ff"/>
+        </linearGradient>
+    </defs>
+    <g id="Group_482" data-name="Group 482" transform="translate(-4304 -3136)">
+        <path id="Rectangle_601" d="M0 0h720v1280H0z" class="cls-2" data-name="Rectangle 601" transform="translate(4304 3136)"/>
+        <g id="Component_173_11" class="cls-3" data-name="Component 173 – 11" transform="translate(4304 3136)">
+            <path id="Path_1086" d="M0 0h720v629.771s-45.127 44.709-225.127 44.709c-149.182 0-180.176-49.558-294.283-60.787S0 629.771 0 629.771z" class="cls-4" data-name="Path 1086"/>
+            <path id="Path_1087" d="M0 40h720v589.771s-45.127 44.709-225.127 44.709c-149.182 0-180.176-49.558-294.283-60.787S0 629.771 0 629.771z" class="cls-5" data-name="Path 1087" transform="translate(0 -40)"/>
+        </g>
+    </g>
+</svg>

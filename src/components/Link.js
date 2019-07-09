@@ -14,6 +14,12 @@ const StyledLink = styled.img`
     text-decoration: none;
     color: ${({ theme }) => theme.colors.primary_dark};
 
+		:hover {
+	    text-decoration: none;
+	    text-underline: none;
+	    outline: none;
+	  }
+  
     ${({ disable }) => disable && css`
       cursor: default;
       pointer-events: none;

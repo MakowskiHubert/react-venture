@@ -4,6 +4,14 @@ import Ink from 'react-ink';
 import styled, { css } from 'styled-components';
 import { Link } from 'components/Link';
 
+const StyledLink = styled(Link)`
+	:hover {
+    text-decoration: none;
+    outline: none;
+    text-underline: none;
+  }
+`;
+
 const Wrapper = styled.button`
   position: relative;
   display: flex;
@@ -20,8 +28,6 @@ const Wrapper = styled.button`
   margin-right: ${({ theme, mr }) => mr && theme.size[mr]};
   margin-bottom: ${({ theme, mb }) => mb && theme.size[mb]};
   margin-left: ${({ theme, ml }) => ml && theme.size[ml]};
-	width: 44.15vmin;
-	height: 7vmax;
 	
   :focus,
   :active {
@@ -48,7 +54,7 @@ const Wrapper = styled.button`
  	 	border: none;
   `}
   
-  ${({ link }) => link && css`
+  ${({ absolute }) => absolute && css`
  		position: fixed;
   	height: ${({ theme }) => theme.size[100]};
   	width: 100vw;
@@ -75,6 +81,19 @@ const Wrapper = styled.button`
   	  `}
   	}
 	`}
+  
+  ${({ textual }) => textual && css`
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border: none;
+		background-color: transparent;
+		color: ${({ color }) => color};
+		
+		:active {
+	    filter: ${({ theme }) => theme.filters.iconOpacity}
+	  }
+	`};
 	
 	${({ next }) => next && css`
 	  position: relative;
@@ -89,11 +108,6 @@ const Wrapper = styled.button`
   	border: none;
 	`}
 	
-	${({ login }) => login && css`
-		box-shadow: 0 0 1.5rem 0 ${({ theme }) => theme.colors.primary_dark};
-  	background-color: ${({ theme }) => theme.colors.primary_dark};
-	`}
-	
 	${({ width }) => width && css`
 		width: ${width}
 	`}
@@ -104,32 +118,37 @@ const Wrapper = styled.button`
 `;
 
 export const Button = (props) => (
-	props.to ? (
-		<Link to={props.to}>
-			<Wrapper {...props}>
-				{!props.disable && (<Ink duration={200} />)}
-				{props.children}
-			</Wrapper>
-		</Link>
-	) : (
-		<Wrapper {...props}>
-			{!props.disable && (<Ink duration={200} />)}
-			{props.children}
-		</Wrapper>
-	)
+		props.isVisible ? props.to ? (
+				<StyledLink to={props.to}>
+					<Wrapper {...props}>
+						{props.ink && (<Ink duration={200}/>)}
+						{props.children}
+					</Wrapper>
+				</StyledLink>
+		) : (
+				<Wrapper {...props}>
+					{props.ink && (<Ink duration={200}/>)}
+					{props.children}
+				</Wrapper>
+		) : null
 );
 
 Button.propTypes = {
 	children: PropTypes.oneOfType([
+		PropTypes.arrayOf(PropTypes.element),
 		PropTypes.element,
 		PropTypes.string
 	]),
 	type: PropTypes.string,
-	disable: PropTypes.bool
+	isVisible: PropTypes.bool,
+	ink: PropTypes.bool,
+	color: PropTypes.string
 };
 
 Button.defaultProps = {
 	children: 'Submit',
 	type: 'button',
-	disable: false
+	isVisible: true,
+	ink: true,
+	color: '#1CAEEE'
 };

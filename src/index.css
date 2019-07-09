@@ -1,12 +1,8 @@
 body {
   margin: 0;
-  font-family: "Trebuchet MS", Helvetica, sans-serif; /*FiraSans, sans-serif;*/
+  font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
-  /*margin-top: 50px;*/
 }
 
 p {

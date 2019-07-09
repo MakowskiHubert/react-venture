@@ -34,6 +34,7 @@ const StyledStatement = styled.p`
   font-size: 4vmin;
   color: #2280ff;
   font-weight: bold;
+  font-family: 'Fira Sans Condensed', sans-serif;
 `;
 
 const Statement = <StyledStatement>The application is available on mobile devices :)</StyledStatement>;

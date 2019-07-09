@@ -47,5 +47,6 @@ export const theme = {
 		112: '8.75vmax', // bottom bar
 		150: '11.72vmax',
 		200: '15.62vmax',
+		300: '23.43vmax',
 	}
 };

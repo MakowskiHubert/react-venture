@@ -24,7 +24,7 @@ const SkipWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   padding-top: ${({ theme }) => theme.size[85]};
@@ -38,21 +38,27 @@ const ButtonWrap = styled.div`
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
   height: ${({ theme }) => theme.size[112]};
+  background-color: #fff;
   width: 100%;
   bottom: 0;
 `;
 
 const Ul = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   bottom: 0;
-  margin-bottom: calc(4.37vmax - 12px);
+  height: 0;
+  margin-bottom: calc(4.2vmax);
+  z-index: 1;
 `;
 
 const CustomDots = styled.button`
 	pointer-events: none;
 	
 	:before {
-		font-size: 20px !important;
+		font-size: ${({ theme }) => theme.size[20]} !important;
 		color: #1caeee !important;
 	}
 `;
@@ -94,7 +100,7 @@ export class WelcomePage extends Component {
 		return (
 				<Wrapper>
 					<SkipWrap>
-						<Button to={routes.JOIN} textual ink={false} color='#fff'>pomiń</Button>
+						<Button to={routes.JOIN} textual color='#fff'>pomiń</Button>
 					</SkipWrap>
 
 					<Slider {...settings}>
@@ -104,7 +110,7 @@ export class WelcomePage extends Component {
 					</Slider>
 
 					<ButtonWrap isFirstSlide={!currentSlide}>
-						<Button onClick={this.handlePrevious} textual ink={false} isVisible={!!currentSlide}>
+						<Button onClick={this.handlePrevious} textual isVisible={!!currentSlide}>
 							<Img src={prevIcon} alt='Previous'/>
 							<p>WSTECZ</p>
 						</Button>

@@ -20,6 +20,8 @@ const scaleOpacity = (translateX, translateY) => keyframes`
 `;
 
 const StyledExplore = styled(ReactExplore)`
+	 width: 35.7vmax;
+	 height: 18.28vmax;
 	 margin-top: ${({ theme }) => theme.size[80]};
 	 margin-bottom: 10.5vmax;
 	
@@ -81,6 +83,7 @@ export const ExplorePage = ({ visible }) => {
 	return (
 			<Wrapper>
 				<StyledExplore/>
+
 				<Title>Eksploruj</Title>
 				<SubTitle>
 					<p>Zobacz najpiękniejsze miejsca</p>

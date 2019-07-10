@@ -26,6 +26,8 @@ const opacity = keyframes`
 `;
 
 const StyledShare = styled(ReactShare)`
+	width: 17.81vmax;
+	height: 28.36vmax;
   margin-top: ${({ theme }) => theme.size[20]};
   margin-bottom: 5.2vmax;
   

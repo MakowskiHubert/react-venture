@@ -21,6 +21,9 @@ const translateY = (a, b, c, d, e, f, value) => keyframes`
 `;
 
 const StyledBox = styled(ReactBox)`
+	width: 25.78vmax;
+	height: 29.14vmax;
+	
 	.markers > g {
 		:nth-child(1) { 
 			animation: ${translateY(0.990, -0.139, 0.139, 0.990, 88.978, 50.167, 200)} 0.75s cubic-bezier(0.42, 0, 0.63, 1.13);

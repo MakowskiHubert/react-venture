@@ -28,6 +28,7 @@ const Wrapper = styled.button`
   margin-right: ${({ theme, mr }) => mr && theme.size[mr]};
   margin-bottom: ${({ theme, mb }) => mb && theme.size[mb]};
   margin-left: ${({ theme, ml }) => ml && theme.size[ml]};
+  height: 100%;
 	
   :focus,
   :active {
@@ -121,13 +122,13 @@ export const Button = (props) => (
 		props.isVisible ? props.to ? (
 				<StyledLink to={props.to}>
 					<Wrapper {...props}>
-						{props.ink && (<Ink duration={200}/>)}
+						{props.ink && (<Ink {...props} />)}
 						{props.children}
 					</Wrapper>
 				</StyledLink>
 		) : (
 				<Wrapper {...props}>
-					{props.ink && (<Ink duration={200}/>)}
+					{props.ink && (<Ink {...props} />)}
 					{props.children}
 				</Wrapper>
 		) : null
@@ -142,6 +143,7 @@ Button.propTypes = {
 	type: PropTypes.string,
 	isVisible: PropTypes.bool,
 	ink: PropTypes.bool,
+	duration: PropTypes.number,
 	color: PropTypes.string
 };
 
@@ -150,5 +152,6 @@ Button.defaultProps = {
 	type: 'button',
 	isVisible: true,
 	ink: true,
+	duration: 200,
 	color: '#1CAEEE'
 };

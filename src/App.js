@@ -30,7 +30,8 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
-				<Route exact path={routes.WELCOME} component={() => <Redirect from={routes.WELCOME} to={routes.DEBUG} />}/>
+				{/*() => <Redirect from={routes.WELCOME} to={routes.DEBUG} />*/}
+				<Route exact path={routes.WELCOME} component={WelcomePage}/>
 				<Route path={routes.WELCOME_SLIDER} component={WelcomePage}/>
 				<Route path={routes.MAP} component={MapPage}/>
 				<Route path={routes.WELCOME_PROFILE} component={ProfilePage}/>

@@ -1,5 +1,15 @@
 import { keyframes } from 'styled-components';
 
+export const opacity = (from = 0, to = 1) => keyframes`
+	from {
+		opacity: ${from};
+	}
+	
+	to {
+		opacity: ${to};
+	}
+`;
+
 export const slideInLeft = keyframes`
   from {
     -webkit-transform: translate3d(-100%, 0, 0);

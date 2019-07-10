@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Wrapper, Title, SubTitle } from './ExplorePage';
 import { ReactComponent as ReactShare } from 'assets/svg/welcome/share.svg';
 
@@ -25,39 +25,32 @@ const opacity = keyframes`
 	}
 `;
 
-const StyledShare = styled(ReactShare)`
+const SvgShare = styled(ReactShare)`
 	width: 17.81vmax;
 	height: 28.36vmax;
   margin-top: ${({ theme }) => theme.size[20]};
   margin-bottom: 5.2vmax;
   
-  .marker1 {
-  	opacity: 0;
-  	transform-origin: 190px 190px;
-		animation: ${scale} 0.25s cubic-bezier(0.42, 0, 0.63, 1.13);
-		animation-fill-mode: forwards;
-		animation-delay: 0.25s;
-  }
-  .marker2 {
-  	opacity: 0;
-  	transform-origin: 190px 190px;
-		animation: ${opacity} 0.25s linear;
-		animation-fill-mode: forwards;
-		animation-delay: 0.45s;
-  }
+	${({ animate }) => animate && css`
+	  .marker1 {
+	    opacity: 0;
+	    transform-origin: 190px 190px;
+			animation: ${scale} 0.25s cubic-bezier(0.42, 0, 0.63, 1.13) 0.25s forwards;
+	  }
+	  .marker2 {
+	    opacity: 0;
+	    transform-origin: 190px 190px;
+			animation: ${opacity} 0.25s linear 0.45s forwards;
+	  }
+	`}
 `;
 
-export const SharePage = ({ visible }) => {
-	if (!visible) return null;
-
-	return (
-			<Wrapper>
-				<StyledShare/>
-				<Title>Dodawaj</Title>
-				<SubTitle>
-					<p>Podziel się swoimi miejscówkami</p>
-				</SubTitle>
-			</Wrapper>
-	);
-};
-
+export const SharePage = ({ isStartAnimation }) => (
+		<Wrapper>
+			<SvgShare animate={isStartAnimation}/>
+			<Title>Dodawaj</Title>
+			<SubTitle>
+				<p>Podziel się swoimi miejscówkami</p>
+			</SubTitle>
+		</Wrapper>
+);

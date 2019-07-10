@@ -20,7 +20,6 @@ const Wrapper = styled.button`
   font-weight: 500;
   font-size: 1.4rem;
   background-color: #fff;
-  border: solid 5px ${({ theme }) => theme.colors.gray};
   border-radius: ${({ theme }) => theme.size[10]};
   filter: ${({ theme, disable }) => disable && theme.filters.grayscale};
   color: ${({ theme }) => theme.colors.gray};
@@ -29,6 +28,7 @@ const Wrapper = styled.button`
   margin-bottom: ${({ theme, mb }) => mb && theme.size[mb]};
   margin-left: ${({ theme, ml }) => ml && theme.size[ml]};
   height: 100%;
+  border: none;
 	
   :focus,
   :active {
@@ -109,6 +109,28 @@ const Wrapper = styled.button`
   	border: none;
 	`}
 	
+	${({ signUp }) => signUp && css`
+		width: 35.16vmax;
+		height: 7.03vmax;
+		border-radius: ${({ theme }) => theme.size[45]};
+	  box-shadow: 0 0.47vmax ${({ theme }) => theme.size[20]} 0 rgba(28, 174, 238, 0.5);
+	  background-image: linear-gradient(to bottom, #5983cb, #00c4ff);
+	  font-size: 1.4rem;
+	  font-weight: bold;
+	  color: #fff;
+	`}
+
+	${({ signIn }) => signIn && css`
+	 	font-family: FiraSans sans-serif;
+		width: 35.16vmax;
+		height: 7.03vmax;
+		border-radius: ${({ theme }) => theme.size[45]};
+	  border: solid ${({ theme }) => theme.size[5]} ${({ theme }) => theme.colors.tertiary};
+		color: ${({ theme }) => theme.colors.tertiary};
+	  font-size: 1.4rem;
+	  font-weight: 500;
+	`}
+	
 	${({ width }) => width && css`
 		width: ${width}
 	`}
@@ -144,7 +166,11 @@ Button.propTypes = {
 	isVisible: PropTypes.bool,
 	ink: PropTypes.bool,
 	duration: PropTypes.number,
-	color: PropTypes.string
+	color: PropTypes.string,
+	mt: PropTypes.number,
+	mr: PropTypes.number,
+	mb: PropTypes.number,
+	ml: PropTypes.number
 };
 
 Button.defaultProps = {

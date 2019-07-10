@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 
@@ -12,12 +13,21 @@ import nextIcon from 'assets/svg/welcome/navigate-next.svg';
 import backgroundImage from 'assets/svg/welcome/welcome-background.svg';
 import { background } from 'constants/mixins';
 import { routes } from 'constants/routes';
+import { opacity } from 'utils/animations';
+
+const LAST_SLIDE = 2;
 
 const Wrapper = styled.div`
   width: 100%;
 	position: relative;
 	padding-top: ${({ theme }) => theme.size[150]};
 	${background(backgroundImage)};
+
+	.slick-dots {
+		> .slick-active {
+   		animation: ${opacity(0.25, 0.75)} 0.2s linear;  
+		}
+	}
 `;
 
 const SkipWrap = styled.div`
@@ -27,7 +37,7 @@ const SkipWrap = styled.div`
   position: absolute;
   width: 100%;
   top: 0;
-  padding-top: ${({ theme }) => theme.size[85]};
+  padding-top: ${({ theme }) => theme.size[45]};
   padding-right: 2.5vmax;
 `;
 
@@ -65,7 +75,8 @@ const CustomDots = styled.button`
 
 export class WelcomePage extends Component {
 	state = {
-		currentSlide: 0
+		currentSlide: 0,
+		redirectToJoin: false
 	};
 
 	handleChangeSlide = (oldIndex, newIndex) => {
@@ -77,11 +88,19 @@ export class WelcomePage extends Component {
 	};
 
 	handleNext = () => {
-		this.slider.slickNext();
+		const { currentSlide } = this.state;
+
+		if (currentSlide === LAST_SLIDE) {
+			this.setState({ redirectToJoin: true });
+		} else {
+			this.slider.slickNext();
+		}
 	};
 
 	render() {
-		const { currentSlide } = this.state;
+		const { currentSlide, redirectToJoin } = this.state;
+
+		if (redirectToJoin) return <Redirect to={routes.JOIN}/>;
 
 		const settings = {
 			ref: ref => (this.slider = ref),
@@ -100,17 +119,17 @@ export class WelcomePage extends Component {
 		return (
 				<Wrapper>
 					<SkipWrap>
-						<Button to={routes.JOIN} textual color='#fff'>pomiń</Button>
+						<Button to={routes.JOIN} textual ink={false} color='#fff'>pomiń</Button>
 					</SkipWrap>
 
 					<Slider {...settings}>
-						<ExplorePage visible={currentSlide === 0 ? 1 : 0}/>
-						<CollectPage visible={currentSlide === 1 ? 1 : 0}/>
-						<SharePage visible={currentSlide === 2 ? 1 : 0}/>
+						<ExplorePage isStartAnimation={currentSlide === 0 ? 1 : 0}/>
+						<CollectPage isStartAnimation={currentSlide === 1 ? 1 : 0}/>
+						<SharePage isStartAnimation={currentSlide === 2 ? 1 : 0}/>
 					</Slider>
 
 					<ButtonWrap isFirstSlide={!currentSlide}>
-						<Button onClick={this.handlePrevious} textual isVisible={!!currentSlide}>
+						<Button onClick={this.handlePrevious} textual ink={false} isVisible={!!currentSlide}>
 							<Img src={prevIcon} alt='Previous'/>
 							<p>WSTECZ</p>
 						</Button>

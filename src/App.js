@@ -12,6 +12,7 @@ import Main from 'components/Lists/Main';
 import Category from 'components/Lists/Category';
 import { LocationPage } from 'components/Pages/LocationPage';
 import { WelcomePage } from 'components/Pages/Welcome/WelcomePage';
+import { JoinPage } from 'components/Pages/Welcome/JoinPage';
 
 class App extends Component {
 	componentDidMount() {
@@ -30,9 +31,9 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
-				{/*() => <Redirect from={routes.WELCOME} to={routes.DEBUG} />*/}
-				<Route exact path={routes.WELCOME} component={WelcomePage}/>
+				<Route exact path={routes.WELCOME} component={() => <Redirect from={routes.WELCOME} to={routes.DEBUG} />}/>
 				<Route path={routes.WELCOME_SLIDER} component={WelcomePage}/>
+				<Route path={routes.JOIN} component={JoinPage}/>
 				<Route path={routes.MAP} component={MapPage}/>
 				<Route path={routes.WELCOME_PROFILE} component={ProfilePage}/>
 				<Route path={routes.WELCOME_LIST} component={ListPage}/>

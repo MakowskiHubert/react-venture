@@ -13,8 +13,9 @@ const Title = styled['h1']`
 	position: absolute;
 	left: 8.33vw;
 	bottom: 2.73vh;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: bold;
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-style: italic;
   color: #fff;
   z-index: 1;

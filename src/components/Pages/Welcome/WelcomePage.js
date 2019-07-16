@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 
@@ -75,8 +74,7 @@ const CustomDots = styled.button`
 
 export class WelcomePage extends Component {
 	state = {
-		currentSlide: 0,
-		redirectToJoin: false
+		currentSlide: 0
 	};
 
 	handleChangeSlide = (oldIndex, newIndex) => {
@@ -89,18 +87,17 @@ export class WelcomePage extends Component {
 
 	handleNext = () => {
 		const { currentSlide } = this.state;
+		const { history } = this.props;
 
 		if (currentSlide === LAST_SLIDE) {
-			this.setState({ redirectToJoin: true });
+			history.push(routes.JOIN);
 		} else {
 			this.slider.slickNext();
 		}
 	};
 
 	render() {
-		const { currentSlide, redirectToJoin } = this.state;
-
-		if (redirectToJoin) return <Redirect to={routes.JOIN}/>;
+		const { currentSlide } = this.state;
 
 		const settings = {
 			ref: ref => (this.slider = ref),
@@ -117,28 +114,28 @@ export class WelcomePage extends Component {
 		};
 
 		return (
-				<Wrapper>
-					<SkipWrap>
-						<Button to={routes.JOIN} textual ink={false} color='#fff'>pomiń</Button>
-					</SkipWrap>
+			<Wrapper>
+				<SkipWrap>
+					<Button to={routes.JOIN} textual ink={false} color='#fff'>pomiń</Button>
+				</SkipWrap>
 
-					<Slider {...settings}>
-						<ExplorePage isStartAnimation={currentSlide === 0 ? 1 : 0}/>
-						<CollectPage isStartAnimation={currentSlide === 1 ? 1 : 0}/>
-						<SharePage isStartAnimation={currentSlide === 2 ? 1 : 0}/>
-					</Slider>
+				<Slider {...settings}>
+					<ExplorePage isStartAnimation={currentSlide === 0 ? 1 : 0}/>
+					<CollectPage isStartAnimation={currentSlide === 1 ? 1 : 0}/>
+					<SharePage isStartAnimation={currentSlide === 2 ? 1 : 0}/>
+				</Slider>
 
-					<ButtonWrap isFirstSlide={!currentSlide}>
-						<Button onClick={this.handlePrevious} textual ink={false} isVisible={!!currentSlide}>
-							<Img src={prevIcon} alt='Previous'/>
-							<p>WSTECZ</p>
-						</Button>
-						<Button onClick={this.handleNext} textual ink={false}>
-							<p>DALEJ</p>
-							<Img src={nextIcon} alt='Next'/>
-						</Button>
-					</ButtonWrap>
-				</Wrapper>
+				<ButtonWrap isFirstSlide={!currentSlide}>
+					<Button onClick={this.handlePrevious} textual ink={false} isVisible={!!currentSlide}>
+						<Img src={prevIcon} alt='Previous'/>
+						<p>WSTECZ</p>
+					</Button>
+					<Button onClick={this.handleNext} textual ink={false}>
+						<p>DALEJ</p>
+						<Img src={nextIcon} alt='Next'/>
+					</Button>
+				</ButtonWrap>
+			</Wrapper>
 		);
 	}
 }

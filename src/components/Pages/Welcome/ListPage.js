@@ -10,7 +10,7 @@ const Image = styled.img`
 `;
 
 export const ListPage = () => (
-	<Wrapper>
+	<Wrapper display='flex' alignItems='center' justifyContent='center' flexDirection='column'>
 		<Image src={list} alt='graphic illustrating the list'/>
 		<Title>Listy</Title>
 		<SubTitle>

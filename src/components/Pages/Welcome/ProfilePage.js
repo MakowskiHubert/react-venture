@@ -10,7 +10,7 @@ const Image = styled.img`
 `;
 
 export const ProfilePage = () => (
-	<Wrapper>
+	<Wrapper display='flex' alignItems='center' justifyContent='center' flexDirection='column'>
 		<Image src={profile} alt='graphic illustrating the places'/>
 		<Title>Profil</Title>
 		<SubTitle>Wyraź siebie i daj się poznać!</SubTitle>

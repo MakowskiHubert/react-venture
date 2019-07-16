@@ -68,6 +68,7 @@ const WrapperIcon = styled.div`
 	right: ${({ theme }) => theme.size[80]};
 	width: 6.85vmax;
 	height: 100%;
+	margin-right: ${({ theme }) => theme.size[10]};
 `;
 
 export class LocationPage extends Component {

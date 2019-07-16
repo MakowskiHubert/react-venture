@@ -14,6 +14,7 @@ import { Toolbar } from 'components/Toolbar';
 import { Icon } from 'components/Icon';
 import { Spinner } from 'components/Spinner';
 import { Select } from 'components/Select';
+import { ListItem } from 'components/Items/ListItem';
 
 import img_francja from 'assets/popular/francja.jpg';
 import img_hiszpania from 'assets/popular/hiszpania.jpg';
@@ -27,7 +28,6 @@ import listIcon from 'assets/svg/list.svg';
 import profileIcon from 'assets/svg/profile.svg';
 import listGrid from 'assets/svg/list-grid.svg';
 import listGroup from 'assets/svg/list-group-TEMP.png';
-import { ListItem } from 'components/Items/ListItem';
 
 export const mode = {
 	list: 'list',
@@ -173,7 +173,7 @@ export default class Main extends Component {
 		const gridMode = viewMode === mode.grid;
 
 		return (
-				<div>
+				<Wrapper mt={80}>
 					<Header>
 						<Select isLoading={isLoading} onChange={this.handleCountryChange} />
 						{gridMode ?
@@ -218,7 +218,7 @@ export default class Main extends Component {
 						<Icon src={listIcon} alt='list of places icon' text='listy'/>
 						<Icon src={profileIcon} alt='profile icon' text='profil'/>
 					</Toolbar>
-				</div>
+				</Wrapper>
 		);
 	}
 }

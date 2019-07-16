@@ -23,7 +23,7 @@ const prodConfig = {
 };
 
 const config =
-  process.env.NODE_ENV === 'production' ? prodConfig : devConfig;
+	process.env.NODE_ENV === 'production' ? prodConfig : devConfig;
 
 export class Firebase {
 	constructor() {
@@ -32,21 +32,33 @@ export class Firebase {
 		this.db = app.database();
 	}
 
-  // *** Auth API ***
-  createUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password);
+	// *** Auth API ***
+	createUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password);
 
-  signInWithEmailAndPassword = (email, password) => this.auth.signInWithEmailAndPassword(email, password);
+	signInWithEmailAndPassword = (email, password) => this.auth.signInWithEmailAndPassword(email, password);
 
-  signOut = () => this.auth.signOut().then(() => history.push('/'));
+	signInWithGoogle = () => {
+		console.log('signInWithGoogle');
+	};
 
-  sendPasswordResetEmail = email => this.auth.sendPasswordResetEmail(email);
+	signInWithFacebook = () => {
+		console.log('signInWithFacebook');
+	};
 
-  updatePassword = password => this.auth.currentUser.updatePassword(password);
+	signInWithTwitter = () => {
+		console.log('signInWithTwitter');
+	};
 
-  // *** Database API ***
-  user = uid => this.db.ref(`users/${uid}`);
+	signOut = () => this.auth.signOut().then(() => history.push('/'));
 
-  users = () => this.db.ref('users');
+	sendPasswordResetEmail = email => this.auth.sendPasswordResetEmail(email);
 
-  places = () => this.db.ref('places');
+	updatePassword = password => this.auth.currentUser.updatePassword(password);
+
+	// *** Database API ***
+	user = uid => this.db.ref(`users/${uid}`);
+
+	users = () => this.db.ref('users');
+
+	places = () => this.db.ref('places');
 }

@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-
+import React, { Component } from 'react';
+import styled, { keyframes } from 'styled-components';
 import { Wrapper, SubTitle as BaseSubTitle, Title as BaseTitle } from 'components/Pages/Welcome/ExplorePage';
 import { Button } from 'components/Button';
 import { Img } from 'components/Img';
 import { routes } from 'constants/routes';
+import { withFirebase } from 'components/Firebase';
 
 import { ReactComponent as ReactJoin } from 'assets/svg/welcome/people-join.svg';
 import arrowBack from 'assets/svg/welcome/arrow-back.svg';
@@ -13,10 +13,21 @@ import facebook from 'assets/svg/welcome/facebook.svg';
 import google from 'assets/svg/welcome/google.svg';
 import line from 'assets/svg/welcome/rectangle.svg';
 
+const fromBottomAppear = keyframes`
+	from {
+		transform: translateY(300px) scale(0);
+	}
+	to {
+		transform: translateY(0) scale(1);
+	}
+`;
+
 const SvgJoin = styled(ReactJoin)`
 	width: 28.12vmax;
 	height: 14.22vmax;
 	margin-bottom: ${({ theme }) => theme.size[112]};
+	animation: ${fromBottomAppear} 0.2s linear 0.5s forwards;
+	transform: scale(0);
 `;
 
 const SkipWrap = styled.div`
@@ -59,11 +70,14 @@ const SocialWrapper = styled.div`
   justify-content: center;
 `;
 
-export const JoinPage = ({ isStartAnimation }) => {
-	return (
+class JoinPage extends Component {
+	render() {
+		const { isStartAnimation, firebase } = this.props;
+
+		return (
 			<Wrapper>
 				<SkipWrap>
-					<Img src={arrowBack} alt='back' to={routes.WELCOME} />
+					<Img src={arrowBack} alt='back' to={routes.MAIN}/>
 					<Button to={routes.MAP} textual ink={false}>pomiń</Button>
 				</SkipWrap>
 
@@ -79,16 +93,19 @@ export const JoinPage = ({ isStartAnimation }) => {
 				<Button to={routes.SIGN_IN} signIn mb={80}>Zaloguj się e-mailem</Button>
 
 				<ContinueComponent>
-					<img src={line} alt='line' />
+					<img src={line} alt='line'/>
 					<p>lub kontynuuj z</p>
-					<img src={line} alt='line' />
+					<img src={line} alt='line'/>
 				</ContinueComponent>
 
 				<SocialWrapper>
-					<Img src={google} alt='google sign in' width={200} height={200} />
-					<Img src={facebook} alt='facebook sign in' width={200} height={200} />
-					<Img src={twitter} alt='twitter sign in' width={200} height={200} />
+					<Img onClick={() => firebase.signInWithGoogle()} src={google} alt='google sign in' width={200} height={200}/>
+					<Img onClick={() => firebase.signInWithFacebook()} src={facebook} alt='facebook sign in' width={200} height={200}/>
+					<Img onClick={() => firebase.signInWithTwitter()} src={twitter} alt='twitter sign in' width={200} height={200}/>
 				</SocialWrapper>
 			</Wrapper>
-	);
-};
+		);
+	}
+}
+
+export default withFirebase(JoinPage);

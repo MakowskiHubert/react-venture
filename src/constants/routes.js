@@ -1,5 +1,5 @@
 export const routes = {
-	WELCOME: '/',
+	MAIN: '/',
 	WELCOME_SLIDER: '/welcome',
 	WELCOME_PROFILE: '/welcome-profile',
 	WELCOME_LIST: '/welcome-list',
@@ -17,8 +17,7 @@ export const routes = {
 	LISTS_CATEGORY: '/lists-category',
 	LISTS_MAIN: '/lists-main',
 	LISTS_NEAR: '/lists-near',
-
-	DEBUG: '/debug'
+	NOT_FOUND: '*'
 };
 
 

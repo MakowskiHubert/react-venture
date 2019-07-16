@@ -1,33 +1,53 @@
 body {
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.fade-appear,
+.fade-enter {
+	opacity: 0;
+}
+
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+	opacity: 1;
+	transition: opacity 300ms linear 150ms;
+}
+
+.fade-exit {
+	opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+	opacity: 0;
+	transition: opacity 150ms linear;
 }
 
 p {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 @media (min-width: 320px), (min-width: 480px) and (orientation: landscape) {
-  html {
-    font-size: 10px;
-  }
+	html {
+		font-size: 10px;
+	}
 }
 
 @media (min-width: 720px), (min-width: 1280px) and (orientation: landscape) {
-  html {
-    font-size: 20px;
-  }
+	html {
+		font-size: 20px;
+	}
 }
 
 @media (min-width: 1080px), (min-width: 1920px) and (orientation: landscape) {
-  html {
-    font-size: 26px;
-  }
+	html {
+		font-size: 26px;
+	}
 }

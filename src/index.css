@@ -36,7 +36,7 @@ code {
 
 @media (min-width: 320px), (min-width: 480px) and (orientation: landscape) {
 	html {
-		font-size: 10px;
+		font-size: 12px;
 	}
 }
 

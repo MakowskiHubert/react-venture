@@ -38,8 +38,8 @@ const Image = styled.img`
 	filter: brightness(0.6);
 	width: ${({ theme }) => theme.size[150]};
 	height: ${({ theme }) => theme.size[150]};
- 	border-radius: ${({ theme }) => theme.size[100]};
  	margin-right: ${({ theme }) => theme.size[30]};
+ 	border-radius: 15px;
 `;
 
 const Votes = styled.div`
@@ -51,21 +51,28 @@ const Votes = styled.div`
 	}
 `;
 
+const Img = styled.img`
+  width: ${({ theme, width }) => theme.size[width]};
+  height: ${({ theme, height }) => theme.size[height]};
+`;
+
 export const ListItem = ({ data }) => (
-		<StyledWrapper>
-			<BorderMask/>
+	<StyledWrapper>
+		<BorderMask/>
+		<Column>
 			<Image src={data.image} alt={'Miejsce ' + data.name}/>
-			<Column>
-				<Title>{data.title}</Title>
-				<SubTitle>{data.distance} km</SubTitle>
-			</Column>
-			<Column ai='flex-end' jc='flex-end'>
-				<Votes>{data.votes}<img src={votesIcon} alt='Votes icon'/></Votes>
-				<Rating
-						initialRating={data.rating}
-						emptySymbol={<img src={emptyStar} alt="Empty star"/>}
-						fullSymbol={<img src={fullStar} alt="Full star"/>}
-				/>
-			</Column>
-		</StyledWrapper>
+		</Column>
+		<Column>
+			<Title>{data.title}</Title>
+			<SubTitle>{data.distance} km</SubTitle>
+		</Column>
+		<Column ai='flex-end' jc='flex-end'>
+			<Votes>{data.votes}<Img width={18} height={48} src={votesIcon} alt='Votes icon'/></Votes>
+			<Rating
+				initialRating={data.rating}
+				emptySymbol={<Img width={30} height={30} src={emptyStar} alt="Empty star"/>}
+				fullSymbol={<Img width={30} height={30} src={fullStar} alt="Full star"/>}
+			/>
+		</Column>
+	</StyledWrapper>
 );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
@@ -14,6 +15,12 @@ import { WelcomePage } from 'components/Pages/Welcome/WelcomePage';
 import JoinPage from 'components/Pages/Welcome/JoinPage';
 import { NotFoundPage } from 'components/Pages/NotFoundPage';
 import { updateAuth } from 'ducks/user';
+
+const Some = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+`;
 
 class App extends Component {
 	componentDidMount() {
@@ -32,6 +39,7 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
+				<Route exact path={routes.MAIN} component={() => <Redirect to={routes.WELCOME_SLIDER}/>}/>
 				<Route
 					render={({ location }) => {
 						return (
@@ -41,24 +49,24 @@ class App extends Component {
 									key={location.key}
 									timeout={450}
 								>
-									<Switch location={location}>
-										<Route path={routes.WELCOME_SLIDER} component={WelcomePage}/>
-										<Route path={routes.JOIN} component={JoinPage}/>
-									</Switch>
+									<Some>
+										<Switch location={location}>
+											<Route exact path={routes.MAIN} component={null}/>
+											<Route path={routes.WELCOME_SLIDER} component={WelcomePage}/>
+											<Route path={routes.JOIN} component={JoinPage}/>
+											<Route path={routes.WELCOME_PROFILE} component={ProfilePage}/>
+											<Route path={routes.WELCOME_LIST} component={ListPage}/>
+											<Route path={routes.LISTS_MAIN} component={Main}/>
+											<Route path={routes.LISTS_CATEGORY} component={Category}/>
+											<Route path={routes.MAP} component={LocationPage}/>
+											<Route path={routes.NOT_FOUND} component={NotFoundPage}/>
+										</Switch>
+									</Some>
 								</CSSTransition>
 							</TransitionGroup>
 						);
 					}}
 				/>
-				<Switch>
-					<Route exact path={routes.MAIN} component={() => <Redirect from={routes.MAIN} to={routes.MAP}/>}/>
-					<Route path={routes.WELCOME_PROFILE} component={ProfilePage}/>
-					<Route path={routes.WELCOME_LIST} component={ListPage}/>
-					<Route path={routes.LISTS_MAIN} component={Main}/>
-					<Route path={routes.LISTS_CATEGORY} component={Category}/>
-					<Route path={routes.MAP} component={LocationPage}/>
-					<Route path={routes.NOT_FOUND} component={NotFoundPage}/>
-				</Switch>
 			</Router>
 		);
 	}

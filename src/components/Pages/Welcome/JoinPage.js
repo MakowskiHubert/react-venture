@@ -15,7 +15,7 @@ import line from 'assets/svg/welcome/rectangle.svg';
 
 const fromBottomAppear = keyframes`
 	from {
-		transform: translateY(300px) scale(0);
+		transform: translateY(23.43vmax) scale(0);
 	}
 	to {
 		transform: translateY(0) scale(1);
@@ -30,7 +30,7 @@ const SvgJoin = styled(ReactJoin)`
 	transform: scale(0);
 `;
 
-const SkipWrap = styled.div`
+const SkipWrap = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,7 +41,7 @@ const SkipWrap = styled.div`
 `;
 
 const Title = styled(BaseTitle)`
-  margin-top: ${({ theme }) => theme.size[150]};
+  margin-top: ${({ theme }) => theme.size[120]};
 `;
 
 const SubTitle = styled(BaseSubTitle)`
@@ -78,7 +78,7 @@ class JoinPage extends Component {
 			<Wrapper>
 				<SkipWrap>
 					<Img src={arrowBack} alt='back' to={routes.MAIN}/>
-					<Button to={routes.MAP} textual ink={false}>pomiń</Button>
+					<Button to={routes.LISTS_MAIN} textual ink={false}>pomiń</Button>
 				</SkipWrap>
 
 				<Title>Dołącz do społeczności</Title>
@@ -92,17 +92,19 @@ class JoinPage extends Component {
 				<Button to={routes.SIGN_UP} signUp mb={30}>Zarejestruj się e-mailem</Button>
 				<Button to={routes.SIGN_IN} signIn mb={80}>Zaloguj się e-mailem</Button>
 
-				<ContinueComponent>
-					<img src={line} alt='line'/>
-					<p>lub kontynuuj z</p>
-					<img src={line} alt='line'/>
-				</ContinueComponent>
+				<footer>
+					<ContinueComponent>
+						<img src={line} alt='line'/>
+						<p>lub kontynuuj z</p>
+						<img src={line} alt='line'/>
+					</ContinueComponent>
 
-				<SocialWrapper>
-					<Img onClick={() => firebase.signInWithGoogle()} src={google} alt='google sign in' width={200} height={200}/>
-					<Img onClick={() => firebase.signInWithFacebook()} src={facebook} alt='facebook sign in' width={200} height={200}/>
-					<Img onClick={() => firebase.signInWithTwitter()} src={twitter} alt='twitter sign in' width={200} height={200}/>
-				</SocialWrapper>
+					<SocialWrapper>
+						<Img onClick={() => firebase.signInWithGoogle()} src={google} alt='google sign in' width={200} height={200}/>
+						<Img onClick={() => firebase.signInWithFacebook()} src={facebook} alt='facebook sign in' width={200} height={200}/>
+						<Img onClick={() => firebase.signInWithTwitter()} src={twitter} alt='twitter sign in' width={200} height={200}/>
+					</SocialWrapper>
+				</footer>
 			</Wrapper>
 		);
 	}

@@ -21,7 +21,8 @@ const Wrapper = styled.div`
   p {
     margin: 0;
     font-size: 1.2rem;
-    font-weight: normal;
+    font-weight: bold;
+		font-family: 'Monospaced', sans-serif;
     color: ${({ theme }) => theme.colors.tertiary};
   }
   
@@ -50,6 +51,7 @@ export const Icon = props =>
 				<Wrapper as={Link} {...props}>
 					<img src={props.src} alt={props.alt}/>
 					{props.text && <p>{props.text}</p>}
+					{props.accent && <Accent src={indicatorBar} alt='Accent icon'/>}
 				</Wrapper>
 		) : (
 				<Wrapper {...props}>
@@ -63,8 +65,8 @@ Icon.propTypes = {
 	src: PropTypes.string.isRequired,
 	alt: PropTypes.string.isRequired,
 	reversefilter: PropTypes.number,
+	accent: PropTypes.number,
 	unlight: PropTypes.bool,
-	accent: PropTypes.bool,
 	active: PropTypes.number,
 	width: PropTypes.number,
 	height: PropTypes.number,
@@ -80,5 +82,5 @@ Icon.defaultProp = {
 	reversefilter: 0,
 	unlight: false,
 	active: false,
-	accent: false
+	accent: 0
 };

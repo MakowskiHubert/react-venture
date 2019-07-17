@@ -9,11 +9,16 @@ import locationIcon from 'assets/svg/my-location.svg';
 import { Link } from 'react-router-dom';
 import { routes } from 'constants/routes';
 
+const Wrapper = styled.div`
+  width: 100vw;
+	height: 100vh;
+`;
+
 const SearchField = styled.div`
 	position: absolute;
 	width: 100%;
 	z-index: 1;
-	bottom: ${({ theme }) => theme.size[200]};
+	bottom: 30vmax;
 `;
 
 const StyledAutocomplete = styled(Autocomplete)`
@@ -27,10 +32,11 @@ const StyledAutocomplete = styled(Autocomplete)`
   padding-right: ${({ theme }) => theme.size[150]};
   background-color: #fff;
   font-weight: 800;
+  border: none;
 
   :focus {
 	  outline: none;
-	  border: 2px solid dodgerblue;
+	  border: 1px solid dodgerblue;
   }
   
   ::placeholder {
@@ -68,7 +74,6 @@ const WrapperIcon = styled.div`
 	right: ${({ theme }) => theme.size[80]};
 	width: 6.85vmax;
 	height: 100%;
-	margin-right: ${({ theme }) => theme.size[10]};
 `;
 
 export class LocationPage extends Component {
@@ -124,32 +129,32 @@ export class LocationPage extends Component {
 		const { position } = this.state;
 
 		return (
-				<div>
-					<SearchField>
-						<StyledAutocomplete
-								types={['address']}
-								onPlaceSelected={this.handleSelectPlace}
-								componentRestrictions={{ country: 'pl' }}
-								ref={input => this.inputAutocomplete = input}
-								placeholder='Podaj adres'
-						/>
-						<WrapperIcon onClick={this.handleCenterFromGps}>
-							<Img src={locationIcon} alt='Location icon'/>
-						</WrapperIcon>
-						<AcceptButton as={Link} to={{
-							pathname: routes.LISTS_NEAR,
-							state: { position: position }
-						}}>
-							<Ink/>OK
-						</AcceptButton>
-					</SearchField>
-
-					<MapComponent
-							isMarkerShown
-							position={position}
-							onPostionChange={this.handleMarkerMove}
+			<Wrapper>
+				<SearchField>
+					<StyledAutocomplete
+						types={['address']}
+						onPlaceSelected={this.handleSelectPlace}
+						componentRestrictions={{ country: 'pl' }}
+						ref={input => this.inputAutocomplete = input}
+						placeholder='Podaj adres'
 					/>
-				</div>
+					<WrapperIcon onClick={this.handleCenterFromGps}>
+						<Img width={35} height={35} src={locationIcon} alt='Location icon'/>
+					</WrapperIcon>
+					<AcceptButton as={Link} to={{
+						pathname: routes.LISTS_NEAR,
+						state: { position: position }
+					}}>
+						<Ink/>OK
+					</AcceptButton>
+				</SearchField>
+
+				<MapComponent
+					isMarkerShown
+					position={position}
+					onPostionChange={this.handleMarkerMove}
+				/>
+			</Wrapper>
 		);
 	}
 }

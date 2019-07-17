@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-around;
     background-color: #fff;
-    border: solid 1px ${({ theme }) => theme.colors.border};
+    border-top: solid 1px ${({ theme }) => theme.colors.border};
     height: ${({ theme }) => theme.size[112]};
     z-index: 500;
   `};

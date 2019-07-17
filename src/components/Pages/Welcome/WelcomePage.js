@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const SkipWrap = styled.div`
+const SkipWrap = styled.header`
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -40,7 +40,7 @@ const SkipWrap = styled.div`
   padding-right: 2.5vmax;
 `;
 
-const ButtonWrap = styled.div`
+const ButtonWrap = styled.footer`
   display: flex;
   align-items: center;
   justify-content: ${({ isFirstSlide }) => isFirstSlide ? 'flex-end' : 'space-between'};
@@ -61,6 +61,12 @@ const Ul = styled.ul`
   height: 0;
   margin-bottom: calc(4.2vmax);
   z-index: 1;
+  
+	@media (max-width: 420px), (max-height: 830px) {
+		> li {
+			margin: 0;
+		}
+	}
 `;
 
 const CustomDots = styled.button`
@@ -110,7 +116,7 @@ export class WelcomePage extends Component {
 			dots: true,
 			fade: true,
 			appendDots: dots => <Ul>{dots}</Ul>,
-			customPaging: () => <CustomDots/>
+			customPaging: () => <CustomDots aria-hidden='true'/>
 		};
 
 		return (
@@ -119,11 +125,13 @@ export class WelcomePage extends Component {
 					<Button to={routes.JOIN} textual ink={false} color='#fff'>pomiń</Button>
 				</SkipWrap>
 
-				<Slider {...settings}>
-					<ExplorePage isStartAnimation={currentSlide === 0 ? 1 : 0}/>
-					<CollectPage isStartAnimation={currentSlide === 1 ? 1 : 0}/>
-					<SharePage isStartAnimation={currentSlide === 2 ? 1 : 0}/>
-				</Slider>
+				<main>
+					<Slider {...settings}>
+						<ExplorePage isStartAnimation={currentSlide === 0 ? 1 : 0}/>
+						<CollectPage isStartAnimation={currentSlide === 1 ? 1 : 0}/>
+						<SharePage isStartAnimation={currentSlide === 2 ? 1 : 0}/>
+					</Slider>
+				</main>
 
 				<ButtonWrap isFirstSlide={!currentSlide}>
 					<Button onClick={this.handlePrevious} textual ink={false} isVisible={!!currentSlide}>

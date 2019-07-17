@@ -28,6 +28,7 @@ import listIcon from 'assets/svg/list.svg';
 import profileIcon from 'assets/svg/profile.svg';
 import listGrid from 'assets/svg/list-grid.svg';
 import listGroup from 'assets/svg/list-group-TEMP.png';
+import { routes } from 'constants/routes';
 
 export const mode = {
 	list: 'list',
@@ -133,11 +134,11 @@ const StyledTab = withStyles({
 	}
 })(props => <Tab {...props} />);
 
-const Header = styled.div`
+const Header = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-bottom: ${({ theme }) => theme.size[35]};;
+	margin-bottom: ${({ theme }) => theme.size[35]};
 `;
 
 export default class Main extends Component {
@@ -159,8 +160,8 @@ export default class Main extends Component {
 		const { viewMode } = this.state;
 
 		viewMode === mode.list ?
-				this.setState({ viewMode: mode.grid }) :
-				this.setState({ viewMode: mode.list });
+			this.setState({ viewMode: mode.grid }) :
+			this.setState({ viewMode: mode.list });
 	};
 
 	handleCountryChange = () => {
@@ -173,52 +174,56 @@ export default class Main extends Component {
 		const gridMode = viewMode === mode.grid;
 
 		return (
-				<Wrapper mt={80}>
-					<Header>
-						<Select isLoading={isLoading} onChange={this.handleCountryChange} />
-						{gridMode ?
-								<Icon unlight onClick={this.handleViewMode} src={listGroup} alt="List of group" width={33} height={33}/> :
-								<Icon unlight onClick={this.handleViewMode} src={listGrid} alt="List of grid" width={33} height={33}/>
-						}
-					</Header>
+			<Wrapper mt={20}>
+				<Header>
+					<Select isLoading={isLoading} onChange={this.handleCountryChange}/>
+					{gridMode ?
+						<Icon unlight onClick={this.handleViewMode} src={listGroup} alt="List of group" width={33} height={33}/> :
+						<Icon unlight onClick={this.handleViewMode} src={listGrid} alt="List of grid" width={33} height={33}/>
+					}
+				</Header>
 
-					<StyledAppBar position="static" color="default">
-						<StyledTabs
-								value={indexActiveTab}
-								onChange={this.handleTabChange}
-								variant="fullWidth"
-						>
-							<StyledTab label="Najpopularniejsze"/>
-							<StyledTab label="Najlepiej oceniane"/>
-						</StyledTabs>
-					</StyledAppBar>
+				<StyledAppBar position="static" color="default">
+					<StyledTabs
+						value={indexActiveTab}
+						onChange={this.handleTabChange}
+						variant="fullWidth"
+					>
+						<StyledTab label="Najpopularniejsze"/>
+						<StyledTab label="Najlepiej oceniane"/>
+					</StyledTabs>
+				</StyledAppBar>
 
+				<main>
 					{isLoading ? <Spinner/> : (
-							<SwipeableViews
-									axis="x"
-									index={indexActiveTab}
-									style={{ height: '75vmax' }}
-									containerStyle={{ height: 'inherit' }}
-									onChangeIndex={this.handleTabIndexChange}
-							>
-								<Wrapper mh={18}>
-									<ListView list={popularList} Component={gridMode ? GridItem : ListItem} columnCount={gridMode ? 3 : 1}/>
-								</Wrapper>
+						<SwipeableViews
+							axis="x"
+							index={indexActiveTab}
+							style={{ height: '75vmax' }}
+							containerStyle={{ height: 'inherit' }}
+							onChangeIndex={this.handleTabIndexChange}
+						>
+							<Wrapper mh={18} mb={40}>
+								<ListView list={popularList} Component={gridMode ? GridItem : ListItem} columnCount={gridMode ? 3 : 1}/>
+							</Wrapper>
 
-								<Wrapper mh={40}>
-									<ListView list={ratedList} Component={gridMode ? GridItem : ListItem} columnCount={gridMode ? 3 : 1}/>
-								</Wrapper>
-							</SwipeableViews>
+							<Wrapper mh={40}>
+								<ListView list={ratedList} Component={gridMode ? GridItem : ListItem} columnCount={gridMode ? 3 : 1}/>
+							</Wrapper>
+						</SwipeableViews>
 					)}
+				</main>
 
+				<footer>
 					<Toolbar bottom activeItem={0} reversefilter={1}>
-						<Icon src={hotIcon} alt='top places icon' text='top'/>
-						<Icon src={nearIcon} alt='near places icon' text='blisko'/>
-						<Icon src={mapIcon} alt='map icon' text='mapa' accent/>
-						<Icon src={listIcon} alt='list of places icon' text='listy'/>
-						<Icon src={profileIcon} alt='profile icon' text='profil'/>
+						<Icon src={hotIcon} to={routes.LISTS_MAIN} alt='top places icon' text='top'/>
+						<Icon src={nearIcon} to={routes.NOT_FOUND} alt='near places icon' text='blisko'/>
+						<Icon src={mapIcon} to={routes.MAP} alt='map icon' text='mapa' accent={1}/>
+						<Icon src={listIcon} to={routes.NOT_FOUND} alt='list of places icon' text='listy'/>
+						<Icon src={profileIcon} to={routes.NOT_FOUND} alt='profile icon' text='profil'/>
 					</Toolbar>
-				</Wrapper>
+				</footer>
+			</Wrapper>
 		);
 	}
 }

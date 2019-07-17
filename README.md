@@ -1,8 +1,8 @@
 # react-venture
- React Yarn PWA using Firebase and Google Maps API. It was created with the help of UI designer as a hobby.
+Yarn PWA using Firebase and Google Maps API. It was created with the help of UI designer [Patryk Korzeniecki](https://pl.linkedin.com/in/patrykkorzeniecki) as a hobby.
 
 ## Demo
-![](1.gif)  |  ![](2.gif)  |  ![](3.gif)
+<img src="1.gif" width="285" height="550" /> <img src="2.gif" width="285" height="550" /> <img src="3.gif" width="285" height="550" />
 
 ## Dependencies
 - [styled-components](https://www.npmjs.com/package/styled-components)
@@ -23,13 +23,3 @@
 - [react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views)
 - [bootstrap-styled](https://www.npmjs.com/package/bootstrap-styled)
 - [material-ui/core](https://www.npmjs.com/package/@material-ui/core)
-
-
-
-
-
-
-
-
-
-
